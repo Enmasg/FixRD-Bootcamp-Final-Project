@@ -10,11 +10,6 @@ export interface ITechnician extends Document {
   rating: number;
 }
 
-export interface ApiResponse<T> {
-  success: boolean;
-  data: T;
-}
-
 export type status = "pending" | "accepted" | "completed" | "cancelled";
 export interface IRequest extends Document {
   clientId: string;
@@ -22,4 +17,9 @@ export interface IRequest extends Document {
   description: string;
   date: Date;
   status: status;
+}
+
+export interface ApiResponse<T> {
+  success: boolean;
+  data: T;
 }
