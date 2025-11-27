@@ -1,19 +1,14 @@
-
 import "./ComoFunciona.css";
 
 const ComoFunciona = () => {
   return (
     <>
-       
-     {/* SECCION MELANIE */}
+      {/* SECCION MELANIE */}
 
       {/* Cómo funciona */}
 
-
       <section className="how-it-works">
-        <h2>
-          <span>Cómo</span> Funciona
-        </h2>
+        <h2>Cómo Funciona</h2>
 
         <p>
           Obtener ayuda profesional nunca ha sido tan fácil. Sigue estos simples
@@ -96,12 +91,7 @@ const ComoFunciona = () => {
       </section>
     </>
     // FIN SECCION MELANIE
-      
   );
 };
 
 export default ComoFunciona;
-     
-     
-     
-    

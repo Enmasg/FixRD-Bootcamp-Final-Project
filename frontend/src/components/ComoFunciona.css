@@ -1,5 +1,3 @@
-
-
 .how-it-works {
   padding: 80px 24px;
   text-align: center;
@@ -15,14 +13,19 @@
   left: 50%;
   width: 700px;
   height: 700px;
-  background: radial-gradient(circle, rgba(46, 196, 182, 0.08), transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(46, 196, 182, 0.08),
+    transparent 70%
+  );
   transform: translateX(-50%);
   filter: blur(120px);
   z-index: 0;
 }
 
 .how-it-works h2 {
-  font-size: 64px;
+  font-family: "moon_get-Heavy";
+  font-size: 2.5em;
   font-weight: 700;
   background: linear-gradient(90deg, #1b9aaa, #2ec4b6);
   -webkit-background-clip: text;
@@ -92,7 +95,6 @@
   line-height: 1.6;
 }
 
-
 /* ===================== TESTIMONIALS ===================== */
 
 .testimonials {
@@ -157,4 +159,4 @@
   font-size: 16px;
   color: rgba(253, 255, 252, 0.75);
   line-height: 1.5;
-} 
+}
