@@ -15,10 +15,11 @@ export interface ApiResponse<T> {
   data: T;
 }
 
-export interface SRequest extends Document {
+export type status = "pending" | "accepted" | "completed" | "cancelled";
+export interface IRequest extends Document {
   clientId: string;
   technicianId: string;
   description: string;
   date: Date;
-  status: "pending" | "accepted" | "completed" | "cancelled";
+  status: status;
 }
