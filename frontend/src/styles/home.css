@@ -1,0 +1,271 @@
+/* ------------------------ricky--------------------------- */
+:root {
+  --bg-main: #011627;
+  --bg-card: #00121f;
+  --bg-card-alt: #001b2c;
+  --accent: #2ec4b6;
+  --accent-2: #1b9aaa;
+  --accent-hover: #80ed99;
+  --text-main: #fdfffc;
+  --text-muted: #9fb3c8;
+  --radius-xl: 24px;
+}
+
+/* Para que el header de Jansel se vea bien encima */
+.app-root {
+  min-height: 100vh;
+  background: transparent;
+}
+
+.home-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 5rem 1.5rem 4rem;
+}
+
+/* Secciones */
+
+.home-section {
+  margin-bottom: 4rem;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.section-title {
+  font-family: "MoonGet", "Okine", system-ui;
+  font-size: 2.4rem;
+  letter-spacing: 0.06em;
+  margin: 0 0 0.75rem;
+}
+
+.section-title-main {
+  color: #ffffff;
+}
+
+.section-title-highlight {
+  color: var(--accent);
+}
+
+.section-subtitle {
+  color: var(--text-muted);
+  max-width: 640px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.section-note {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  color: var(--accent-hover);
+}
+
+/* Grid de tarjetas */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.75rem;
+}
+
+/* Tarjetas de servicios */
+.service-card {
+  background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-card-alt) 100%);
+  border-radius: var(--radius-xl);
+  padding: 1.75rem;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(46, 196, 182, 0.12);
+  transition: transform 0.25s ease, box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.85);
+  border-color: rgba(128, 237, 153, 0.45);
+}
+
+.service-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.1rem;
+  background: radial-gradient(circle at top, var(--accent) 0%, var(--accent-2) 80%);
+  font-size: 1.6rem;
+}
+
+.service-name {
+  margin: 0 0 0.4rem;
+  font-size: 1.2rem;
+}
+
+.service-description {
+  margin: 0 0 0.8rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.service-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-main);
+}
+
+.service-features li::before {
+  content: "✔ ";
+  color: var(--accent-hover);
+}
+
+/* Tarjetas de técnicos */
+
+.technician-card {
+  background: linear-gradient(145deg, #00121f 0%, #001f30 100%);
+  border-radius: var(--radius-xl);
+  padding: 1.9rem 1.8rem 1.6rem;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(46, 196, 182, 0.18);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.technician-header {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.technician-photo {
+  width: 64px;
+  height: 64px;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 2px solid var(--accent);
+}
+
+.technician-name {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.technician-role {
+  margin: 0.15rem 0;
+  font-size: 0.9rem;
+  color: var(--accent-hover);
+}
+
+.technician-rating {
+  font-size: 0.9rem;
+}
+
+.technician-reviews {
+  color: var(--text-muted);
+  margin-left: 0.25rem;
+}
+
+.technician-description {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.technician-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.technician-tag {
+  padding: 0.15rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(128, 237, 153, 0.5);
+  font-size: 0.78rem;
+}
+
+.technician-footer {
+  margin-top: 0.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.technician-price {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.price-amount {
+  color: var(--accent-hover);
+  font-weight: 700;
+}
+
+/* Botones */
+
+.btn-primary,
+.btn-secondary {
+  border-radius: 999px;
+  padding: 0.7rem 1.6rem;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: transform 0.12s ease, box-shadow 0.12s ease,
+    background 0.18s ease;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent-2), var(--accent));
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(46, 196, 182, 0.5);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+}
+
+.btn-secondary:hover {
+  background: rgba(46, 196, 182, 0.12);
+}
+
+/* Extras */
+
+.loading-text {
+  text-align: center;
+  color: var(--text-muted);
+}
+
+.section-actions {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .home-main {
+    padding-top: 4rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .technician-card {
+    padding: 1.4rem 1.2rem;
+  }
+}

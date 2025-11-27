@@ -1,19 +1,16 @@
-/* * {
-  margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 body {
-  background: url("../assets/images/tecnico.png") no-repeat;
+  background: url("./assets/images/tecnico.png") no-repeat;
   background-size: cover;
   background-position: center;
+<<<<<<< HEAD
   
 }
  */
 
 /* ===================== HOW IT WORKS ===================== */
+=======
+  background-attachment: fixed;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+>>>>>>> 90ed0808ecd56a6030966fa08235433af376a2d7
