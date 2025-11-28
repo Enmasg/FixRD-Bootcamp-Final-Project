@@ -3,6 +3,9 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
 import errors from "./middlewares/errors.js";
+import userRoutes from "./routes/user.routes.js";
+import reviewRoutes from "./routes/review.routes.js";
+
 
 dotenv.config();
 
@@ -14,6 +17,8 @@ const app = express();
 const connectionString: string | undefined =
   env === "prod" ? process.env.MONGO_URL_PROD : process.env.MONGO_URL_DEV;
 
+
+  console.log ("connectionString:", connectionString);
 // Settings
 if (connectionString) {
   mongoose.connect(connectionString);
@@ -31,8 +36,14 @@ app.use(
   })
 );
 
+// Setup routes
+app.use("/api/users", userRoutes);
+app.use("/api/reviews", reviewRoutes);
 // Setup routes and middlewares
 app.use(errors);
+
+
+
 
 // Listen port
 app.listen(port, () => {

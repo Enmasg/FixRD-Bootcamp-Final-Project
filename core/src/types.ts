@@ -22,3 +22,22 @@ export interface SRequest extends Document {
   date: Date;
   status: "pending" | "accepted" | "completed" | "cancelled";
 }
+
+
+export interface IUser extends Document {
+  name: string;
+  email: string;
+  password: string;
+  role: "client" | "technician";
+}
+
+export interface IReview extends Document {
+  requestId: string;
+  technicianId: string;
+  clientId: string;
+  rating: number;
+  comment?: string;
+  // mongoose timestamps
+  createdAt?: Date;
+  updatedAt?: Date;
+}
