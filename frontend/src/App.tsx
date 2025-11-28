@@ -6,24 +6,21 @@ import ComoFunciona from "./components/ComoFunciona";
 import UneteTecnico from "./components/UneteTecnico";
 import Footer from "./components/Footer";
 import FAQ from "./components/FAQ";
+import TecnicoTarjeta from "./pages/catalogo";
 
 function App() {
   return (
+
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/catalogo" element={<TecnicoTarjeta/>}/>
       </Routes>
 
-      <main className="home-main">
-        <ServicesSection />
-        <TopTechniciansSection />
-      </main>
 
-      <ComoFunciona />
-      <FAQ />
-      <UneteTecnico/>
+    
       <Footer />
-    </BrowserRouter>
+   </BrowserRouter>
   );
 }
 

@@ -2,6 +2,7 @@ import { useFormik } from "formik";
 import "./SearchForm.css";
 import { IoTimeSharp } from "react-icons/io5";
 import * as Yup from "yup";
+import { Navigate, useNavigate } from "react-router-dom";
 
 
 type TypeIniditialValues = {
@@ -23,6 +24,7 @@ const validationSchema = Yup.object({
 });
 
 const SearchForm = () => {
+  const navigate = useNavigate()
   const onSubmit = (values: TypeIniditialValues, { resetForm }: any) => {
     console.log("Formulario Validado", values);
     resetForm();
@@ -88,7 +90,8 @@ const SearchForm = () => {
           
 
           <div className="btn-tecnico">
-            <button className="btn-1">
+            <button className="btn-1"
+            onClick={( ) => navigate ("/catalogo") } >
               <h3>Encuentra el técnico</h3>
             </button>
           </div>

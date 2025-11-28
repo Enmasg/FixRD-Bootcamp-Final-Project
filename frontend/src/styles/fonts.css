@@ -14,10 +14,10 @@
     format("opentype");
   font-weight: 700;
   font-style: normal;
+}
 
-  /* Título especial (moon_get) */
-  @font-face {
-    font-family: "MoonGet";
-    src: url("../assets/fonts/moon_get-Heavy.otf") format("opentype");
-  }
+/* Título especial (moon_get) */
+@font-face {
+  font-family: "MoonGet";
+  src: url("../assets/fonts/moon_get-Heavy.otf") format("opentype");
 }

@@ -1,6 +1,6 @@
 .faq-section {
   padding: 70px 20px;
-  background: var(--bg-dark);
+  background: linear-gradient(#001b2c 50%, #2ec4b6);
   text-align: center;
   font-family: "Moonget", sans-serif;
 }

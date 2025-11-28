@@ -1,10 +1,10 @@
 // ------------------------ricky---------------------------
-import { Service } from "../types"; 
+import { Service } from "../types";
 
 export const servicesMock: Service[] = [
   {
-    id: "plumbing", 
-    name: "Plomería", 
+    id: "plumbing",
+    name: "Plomería",
     description:
       "Expertos en fugas, instalaciones y reparaciones de emergencia para tu hogar o negocio.",
     features: [
@@ -12,8 +12,8 @@ export const servicesMock: Service[] = [
       "Instalación de tuberías",
       "Destape y limpieza de desagües",
       "Instalación de calentadores de agua",
-    ], 
-    icon: "🔧", 
+    ],
+    icon: "🔧",
   },
   {
     id: "electrical",
@@ -29,29 +29,29 @@ export const servicesMock: Service[] = [
     icon: "⚡",
   },
   {
-    id: "hvac",
-    name: "Climatización (HVAC)",
+    id: "appliance",
+    name: "Reparación de electrodomésticos",
     description:
-      "Técnicos en aire acondicionado y calefacción para instalación, reparación y mantenimiento.",
+      "Técnicos especializados en diagnóstico, mantenimiento y reparación de electrodomésticos de todas las marcas.",
     features: [
-      "Instalación de A/C",
-      "Mantenimiento preventivo",
-      "Limpieza de ductos",
-      "Instalación de termostatos",
+      "Reparación de neveras",
+      "Servicios de lavadoras y secadoras",
+      "Reparación de hornos y estufas",
+      "Diagnóstico y mantenimiento general",
     ],
-    icon: "❄️",
+    icon: "🛠️",
   },
   {
-    id: "painting",
-    name: "Pintura y acabados",
+    id: "Refrigeracion",
+    name: "Refrigeración y Climatización",
     description:
-      "Pintores profesionales para interiores, exteriores y proyectos de renovación.",
+      "Especialistas en instalación, mantenimiento y reparación de sistemas de refrigeración y climatización residenciales y comerciales.",
     features: [
-      "Pintura interior",
-      "Pintura exterior",
-      "Corrección de superficies",
-      "Asesoría de colores",
+      "Instalación de aires acondicionados",
+      "Refrigeración comercial",
+      "Carga y recuperación de gas",
+      "Mantenimiento preventivo",
     ],
-    icon: "🎨",
+    icon: "❄️",
   },
 ];
