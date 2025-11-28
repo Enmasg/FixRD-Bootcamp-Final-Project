@@ -4,6 +4,8 @@ import ServicesSection from "./components/ServicesSection";
 import TopTechniciansSection from "./components/TopTechniciansSection";
 import ComoFunciona from "./components/ComoFunciona";
 import UneteTecnico from "./components/UneteTecnico";
+import Footer from "./components/Footer";
+import FAQ from "./components/FAQ";
 
 function App() {
   return (
@@ -18,7 +20,9 @@ function App() {
       </main>
 
       <ComoFunciona />
+      <FAQ />
       <UneteTecnico/>
+      <Footer />
     </BrowserRouter>
   );
 }

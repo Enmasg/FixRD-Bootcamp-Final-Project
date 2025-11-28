@@ -3,6 +3,7 @@ import "./SearchForm.css";
 import { IoTimeSharp } from "react-icons/io5";
 import * as Yup from "yup";
 
+
 type TypeIniditialValues = {
   servicios: string;
   lugares: string;

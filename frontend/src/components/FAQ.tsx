@@ -49,10 +49,10 @@ export default function FAQ() {
   
     <section className="faq-section">
       <h1 className="faq-title">
-        Frequently Asked <span>Questions</span>
+        Preguntas Frecuentes <span>Preguntas</span>
       </h1>
       <p className="faq-subtitle">
-        Got questions? We've got answers. Here are the most common questions about FixRD and our services.
+        ¿Tienes preguntas? Tenemos las respuestas. Aquí tienes las preguntas más frecuentes sobre FixRD y nuestros servicios.
       </p>
 
       <div className="faq-container">
