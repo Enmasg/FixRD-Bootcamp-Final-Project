@@ -8,6 +8,7 @@ import UneteTecnico from "./components/UneteTecnico";
 import Footer from "./components/Footer";
 import FAQ from "./components/FAQ";
 import TecnicoTarjeta from "./pages/catalogo";
+import TechnicianDashboard from "./pages/TechnicianDashboard";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/catalogo" element={<TecnicoTarjeta />} />
+        <Route path="/tecnico" element={<TechnicianDashboard />} />
       </Routes>
 
       <Footer />
