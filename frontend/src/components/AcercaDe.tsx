@@ -4,7 +4,7 @@ import TecnicosImg from "../assets/images/grupo-de-técnicos-confianza-en-equipo
 const AcercaDe = () => {
   return (
     <>
-      {/* SECCION MELANIE */}
+      {/* SECCION enmanuel */}
 
       {/* Acerca de */}
 
@@ -46,8 +46,7 @@ const AcercaDe = () => {
         </div>
 
         <div className="about-image">
-          <img src={TecnicosImg} alt="Técnicos trabajando" /> alt="Técnicos
-          trabajando"
+          <img src={TecnicosImg} alt="Técnicos trabajando" /> 
           <div className="badge rating-badge">
             ⭐ 4.9 Valoración de Clientes
           </div>
@@ -57,7 +56,7 @@ const AcercaDe = () => {
         </div>
       </section>
     </>
-    // FIN SECCION MELANIE
+    // FIN SECCION enmanuel
   );
 };
 

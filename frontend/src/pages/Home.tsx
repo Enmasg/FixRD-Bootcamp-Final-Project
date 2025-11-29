@@ -1,5 +1,6 @@
+
+import AcercaDe from "../components/AcercaDe";
 import ComoFunciona from "../components/ComoFunciona";
-import AcercaDe from "../components/acercade";
 import FAQ from "../components/FAQ";
 import Header from "../components/Header";
 import Hero from "../components/Hero";
@@ -20,6 +21,8 @@ const Home = () => {
       </main>
 
       <ComoFunciona />
+      <AcercaDe />
+     
       <FAQ />
       <UneteTecnico />
     </>

@@ -3,7 +3,7 @@ import Home from "./pages/Home";
 import ServicesSection from "./components/ServicesSection";
 import TopTechniciansSection from "./components/TopTechniciansSection";
 import ComoFunciona from "./components/ComoFunciona";
-import AcercaDe from "./components/acercade";
+import AcercaDe from "./components/AcercaDe";
 import UneteTecnico from "./components/UneteTecnico";
 import Footer from "./components/Footer";
 import FAQ from "./components/FAQ";
