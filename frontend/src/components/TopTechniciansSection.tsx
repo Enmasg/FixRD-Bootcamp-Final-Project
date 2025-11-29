@@ -4,6 +4,15 @@ import { Technician } from "../types";
 import { techniciansMock } from "../mocks/techniciansMock"; 
 import { fetchTechniciansFromApi } from "../api/techniciansApi"; 
 
+const formatCurrency = (amount: number): string => {
+  return new Intl.NumberFormat("es-DO", {
+    style: "currency",
+    currency: "DOP",
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }).format(amount);
+}
+
 const TopTechniciansSection: React.FC = () => {
   const [technicians, setTechnicians] = useState<Technician[]>([]); 
   const [loading, setLoading] = useState(true); 
@@ -93,9 +102,11 @@ const TopTechniciansSection: React.FC = () => {
 
               <div className="technician-footer">
                 <div className="technician-price">
+
                   Desde{" "}
+          
                   <span className="price-amount">
-                    ${tech.pricePerHour.toFixed(0)}
+                    {formatCurrency(tech.pricePerHour)}
                   </span>
                   /hora
                 </div>

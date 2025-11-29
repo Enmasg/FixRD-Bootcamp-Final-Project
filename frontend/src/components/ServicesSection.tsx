@@ -1,7 +1,7 @@
 // ------------------------ricky---------------------------*
-import React from "react"; 
-import { servicesMock } from "../mocks/servicesMock"; 
-import { Service } from "../types"; 
+import React from "react";
+import { servicesMock } from "../mocks/servicesMock";
+import { Service } from "../types";
 import "../styles/home.css";
 
 const ServicesSection: React.FC = () => {
@@ -40,4 +40,4 @@ const ServicesSection: React.FC = () => {
   );
 };
 
-export default ServicesSection; 
+export default ServicesSection;
