@@ -1,9 +1,10 @@
 import React from "react";
 import logo from "../assets/images/LOGO-fixrd.png";
 import "./Header.css"; 
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
 const Header = () => {
+  const navigate = useNavigate()
   return (
     <div className="header">
     <header className="header">
@@ -21,8 +22,8 @@ const Header = () => {
 </nav>
 
       <div className="btns-header">
-       <button className="btn-login">Iniciar Sesión</button>
-        <button className="register">Registro</button>
+       <button className="btn-login"  onClick={( ) => navigate ("/login") } > Sesión Cliente</button>
+        <button className="register" onClick={() => navigate("/register")}>Iniciar Sesión Técnico</button>
       </div>
     </header>
     </div>
