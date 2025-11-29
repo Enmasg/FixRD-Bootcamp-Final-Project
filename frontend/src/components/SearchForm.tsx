@@ -31,7 +31,7 @@ const SearchForm = () => {
     console.log("Formulario Limpio");
   };
 
-  const { values, errors, handleChange, handleSubmit } = useFormik({
+  const { values, errors, touched, handleChange, handleSubmit, handleBlur } = useFormik({
     initialValues,
     onSubmit,
     validationSchema,
@@ -43,30 +43,39 @@ const SearchForm = () => {
     <>
       <div className="CONTAINER1">
         <form className="formulariocabezera" onSubmit={handleSubmit}>
-          <select
-            name="servicios"
-            className="servicios"
-            value={values.servicios}
-            onChange={handleChange}
-          >
-            <option value="">Servicios</option>
-            <option value="electricidad">Electricidad</option>
-            <option value="plomeria">Plomería</option>
-            <option value="reparacionelectrodomesticos">
-              Reparación de Electrodomésticos
-            </option>
-            <option value="refrigeracionyclimatizacion">
-              Refrigeración y Climatización
-            </option>
-          </select>
           
+          {/* Campo Servicios */}
+          <div className="campo-wrapper">
+            <select
+              name="servicios"
+              className="servicios"
+              value={values.servicios}
+              onChange={handleChange}
+              onBlur={handleBlur}
+            >
+              <option value="">Servicios</option>
+              <option value="electricidad">Electricidad</option>
+              <option value="plomeria">Plomería</option>
+              <option value="reparacionelectrodomesticos">
+                Reparación de Electrodomésticos
+              </option>
+              <option value="refrigeracionyclimatizacion">
+                Refrigeración y Climatización
+              </option>
+            </select>
+            {touched.servicios && errors.servicios && (
+              <small className="text-red-500">{errors.servicios}</small>
+            )}
+          </div>
 
-          <div className="ubicacion">
+        
+          <div className="campo-wrapper ubicacion">
             <select
               name="lugares"
               className="ciudad"
               value={values.lugares}
               onChange={handleChange}
+              onBlur={handleBlur}
             >
               <option value="">Ubicacion</option>
               <option value="SantoDomingo">Santo Domingo</option>
@@ -75,23 +84,32 @@ const SearchForm = () => {
               <option value="SanCristobal">San Cristobal</option>
               <option value="PuertoPlata">Puerto Plata</option>
             </select>
-            <small className="text-red-500">{errors?.lugares}</small>
+            {touched.lugares && errors.lugares && (
+              <small className="text-red-500">{errors.lugares}</small>
+            )}
           </div>
 
-          <div className="fecha">
+     
+          <div className="campo-wrapper fecha">
             <input
               type="date"
               name="fecha"
               value={values.fecha}
               onChange={handleChange}
+              onBlur={handleBlur}
             />
-            <small className="text-red-500">{errors?.fecha}</small>
+            {touched.fecha && errors.fecha && (
+              <small className="text-red-500">{errors.fecha}</small>
+            )}
           </div>
-          
+
 
           <div className="btn-tecnico">
-            <button className="btn-1"
-            onClick={( ) => navigate ("/catalogo") } >
+            <button 
+              className="btn-1"
+              type="button"
+              onClick={() => navigate("/catalogo")}
+            >
               <h3>Encuentra el técnico</h3>
             </button>
           </div>
