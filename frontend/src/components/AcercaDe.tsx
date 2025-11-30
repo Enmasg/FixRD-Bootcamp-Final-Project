@@ -4,9 +4,7 @@ import TecnicosImg from "../assets/images/grupo-de-técnicos-confianza-en-equipo
 const AcercaDe = () => {
   return (
     <>
-      {/* SECCION enmanuel */}
-
-      {/* Acerca de */}
+    
 
       <section className="about-fixrd">
         <div className="about-content">

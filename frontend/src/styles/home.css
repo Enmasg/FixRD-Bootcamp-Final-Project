@@ -11,13 +11,13 @@
   --radius-xl: 24px;
 }
 
-/* Para que el header de Jansel se vea bien encima */
-/* .app-root {
+
+.contenedorservices{
   min-height: 100vh;
-  background: transparent;
-} */
+}
 
 .home-main {
+  
   max-width: 100%;
   margin: 0 auto;
   padding: 5rem 1.5rem 4rem;
@@ -25,9 +25,7 @@
   margin-top: 10px;
 }
 
-/* #011627
-#000000
-#003049 */
+
 
 
 /* Secciones */

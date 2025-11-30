@@ -13,10 +13,10 @@ const Header = () => {
 
       <nav className="nav-sticky-list">
         <ul className="list-item">
-          <li><a href="#inicio">Inicio</a></li>
-          <li><a href="#acerca">Acerca</a></li>
-          <li><a href="#servicios">Servicios</a></li>
-          <li><a href="#contacto">Contacto</a></li>
+          <li><a href="/">Inicio</a></li>
+          <li><a href="/acercade">Acerca</a></li>
+          <li><a href="/services">Servicios</a></li>
+          <li><a href="/contacto">Contacto</a></li>
         </ul>
       </nav>
 

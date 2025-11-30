@@ -33,7 +33,8 @@ const TecnicoTarjeta = () => {
   });
 
   return (
-    <div>
+    <div className="container">
+
       <header className="header">
         <img src={LOGO} alt="Logo Empresa" className="header-logo" />
       </header>

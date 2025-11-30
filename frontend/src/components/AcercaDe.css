@@ -1,8 +1,9 @@
-/* =================== ABOUT SECTION =================== */
+
 
 .about-fixrd {
   display: flex;
   flex-wrap: wrap;
+ min-height: 100vh; 
   justify-content: space-between;
   padding: 80px 40px;
   background: linear-gradient(160deg, #000000 0%, #011627 60%, #003049 100%);
@@ -11,7 +12,7 @@
   align-items: center;
 }
 
-/* LEFT COLUMN — TEXT */
+
 .about-content {
   flex: 1;
   min-width: 350px;
@@ -86,7 +87,7 @@
   background: #2ec4b610;
 }
 
-/* RIGHT COLUMN — IMAGE + BADGES */
+
 
 .about-image {
   flex: 1;
