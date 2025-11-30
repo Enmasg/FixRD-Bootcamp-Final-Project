@@ -28,13 +28,16 @@
   box-shadow: #08f95c 0px 1px 5px;
 }
 
-.text-red-500 {
+ .text-red-501 {
   color: #d90000;
   font-family: sans-serif;
   font-size: 14px;
-  margin-top: 5px;
+  margin-top: 10px;
+
  
-}
+} 
+
+
 .icono-usuario {
   display: flex;
   justify-content: center;

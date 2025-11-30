@@ -1,5 +1,6 @@
 import "./AcercaDe.css";
 import TecnicosImg from "../assets/images/grupo-de-técnicos-confianza-en-equipo-trabajadores-una-fábrica-industrial-la-feliz-mantenimiento-y-ingenieros-retrato-272397872.jpg";
+import { FaInstagram } from "react-icons/fa";
 
 const AcercaDe = () => {
   return (
@@ -39,7 +40,14 @@ const AcercaDe = () => {
 
           <div className="about-buttons">
             <button className="story-btn">Nuestra Historia</button>
-            <button className="contact-btn">Contáctanos</button>
+                 <a className="contact-btn"
+                      href="https://www.instagram.com/talendigrd/?hl=en"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                    Contáctanos
+                    </a>
+           {/*  <button className="contact-btn" >Contáctanos</button> */}
           </div>
         </div>
 

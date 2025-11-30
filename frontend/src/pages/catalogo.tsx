@@ -6,9 +6,11 @@ import blanco from "../assets/images/blanco.png";
 import azulmujer from "../assets/images/azulmujer.png";
 import rosado from "../assets/images/rosado.png";
 import LOGO from "../assets/images/logo fixrd.png";
+import Luffy from "../assets/images/luffy.png"
 
 
 const tecnicos = [
+   { nombre: "Luffy Rodriguez", servicio: "Reparación de Electrodomesticos", ubicacion: "Puerto Plata", experiencia: 2, estrellas: 5, foto: Luffy },
   { nombre: "Zoro Almonte", servicio: "Electricidad", ubicacion: "Santo Domingo", experiencia: 5, estrellas: 5, foto: zoro },
   { nombre: "Ricky Ricon", servicio: "Plomería", ubicacion: "Santiago", experiencia: 3, estrellas: 4, foto: purpura },
   { nombre: "Luis Martínez", servicio: "Reparación de Electrodomesticos", ubicacion: "La Vega", experiencia: 7, estrellas: 3, foto: blanco },

@@ -178,7 +178,7 @@ const TecnicoRegistro = () => {
                 value={values.nombre}
               />
               <FaUserAlt className="icon" />
-              <small className="text-red-500">{errors?.nombre}</small>
+              <small className="text-red-501">{errors?.nombre}</small>
             </div>
             <div className="input-tecnico">
               <input
@@ -189,7 +189,7 @@ const TecnicoRegistro = () => {
                 value={values.telefono}
               />
               <FaPhoneVolume className="icon" />
-              <small className="text-red-500">{errors?.telefono}</small>
+              <small className="text-red-501">{errors?.telefono}</small>
             </div>
           </div>
 
@@ -202,7 +202,7 @@ const TecnicoRegistro = () => {
               value={values.email}
             />
             <MdMarkEmailRead className="icon" />
-            <small className="text-red-500">{errors?.email}</small>
+            <small className="text-red-501">{errors?.email}</small>
           </div>
 
           <div className="fila-doble">
@@ -215,7 +215,7 @@ const TecnicoRegistro = () => {
                 value={values.password}
               />
               <FaLock className="icon" />
-              <small className="text-red-500">{errors?.password}</small>
+              <small className="text-red-501">{errors?.password}</small>
             </div>
             <div className="input-tecnico">
               <input
@@ -226,7 +226,7 @@ const TecnicoRegistro = () => {
                 value={values.passwordConfirm}
               />
               <FaUnlock className="icon" />
-              <small className="text-red-500">{errors?.passwordConfirm}</small>
+              <small className="text-red-501">{errors?.passwordConfirm}</small>
             </div>
           </div>
 
@@ -245,7 +245,7 @@ const TecnicoRegistro = () => {
               <option value="PuertoPlata">Puerto Plata</option>
             </select>
             <CiLocationOn className="icon" />
-            <small className="text-red-500">{errors?.lugares}</small>
+            <small className="text-red-501">{errors?.lugares}</small>
           </div>
 
           <div className="input-tecnico">
@@ -265,7 +265,7 @@ const TecnicoRegistro = () => {
               <option value="OtrosServicios">Otros servicios</option>
             </select>
             <MdHomeRepairService className="icon" />
-            <small className="text-red-500">{errors?.servicios}</small>
+            <small className="text-red-501">{errors?.servicios}</small>
           </div>
 
           <label className="label-precio">Precio dominicano (RD$)</label>
@@ -305,7 +305,7 @@ const TecnicoRegistro = () => {
               step={1}
             />
             <FaUserAlt className="icon" />
-            <small className="text-red-500">{errors?.experiencia}</small>
+            <small className="text-red-501">{errors?.experiencia}</small>
           </div>
           <br />
           <br />
@@ -320,7 +320,7 @@ const TecnicoRegistro = () => {
               />
               
               Estoy de acuerdo con los términos y condiciones
-              <small className="text-red-500">{errors?.check}</small>
+              <small className="text-red-501">{errors?.check}</small>
             </label>
           </div>
 

@@ -8,7 +8,7 @@ const Header = () => {
   return (
     <header>
       <div className="logo-nav">
-        <img src={logo} width={150} height={150} alt="Logo Fixrd" />
+        <img src={logo} width={175} height={175} alt="Logo Fixrd" />
       </div>
 
       <nav className="nav-sticky-list">

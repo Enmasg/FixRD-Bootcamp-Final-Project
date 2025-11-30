@@ -155,7 +155,7 @@ const LoginRegistro = () => {
                 onChange={handleChange}
                 value={values.nombre}
               />
-              <small className="text-red-500">{errors?.nombre}</small>
+              <small className="text-red-501">{errors?.nombre}</small>
               <FaUserAlt className="icon" />
             </div>
 
@@ -167,7 +167,7 @@ const LoginRegistro = () => {
                 onChange={handleChange}
                 value={values.telefono}
               />
-              <small className="text-red-500">{errors?.telefono}</small>
+              <small className="text-red-501">{errors?.telefono}</small>
               <FaPhoneVolume className="icon" />
             </div>
           </div>
@@ -180,7 +180,7 @@ const LoginRegistro = () => {
               onChange={handleChange}
               value={values.email}
             />
-            <small className="text-red-500">{errors?.email}</small>
+            <small className="text-red-501">{errors?.email}</small>
             <MdMarkEmailRead className="icon" />
           </div>
 
@@ -193,7 +193,7 @@ const LoginRegistro = () => {
                 onChange={handleChange}
                 value={values.password}
               />
-              <small className="text-red-500">{errors?.password}</small>
+              <small className="text-red-501">{errors?.password}</small>
               <FaLock className="icon" />
             </div>
 
@@ -205,7 +205,7 @@ const LoginRegistro = () => {
                 onChange={handleChange}
                 value={values.passwordConfirm}
               />
-              <small className="text-red-500">{errors?.passwordConfirm}</small>
+              <small className="text-red-501">{errors?.passwordConfirm}</small>
               <FaUnlock className="icon" />
             </div>
           </div>
@@ -239,7 +239,7 @@ const LoginRegistro = () => {
               />
               
               Estoy de acuerdo con los términos y condiciones
-              <small className="text-red-500">{errors?.check}</small>
+              <small className="text-red-501">{errors?.check}</small>
             </label>
           </div>
 
