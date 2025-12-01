@@ -32,3 +32,22 @@ export interface IUser extends Document{
   role: "client" | "technician";
   createDate: Date;
 }
+
+
+export interface IUser extends Document {
+  name: string;
+  email: string;
+  password: string;
+  role: "client" | "technician";
+}
+
+export interface IReview extends Document {
+  requestId: string;
+  technicianId: string;
+  clientId: string;
+  rating: number;
+  comment?: string;
+  // mongoose timestamps
+  createdAt?: Date;
+  updatedAt?: Date;
+}
