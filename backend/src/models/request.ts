@@ -1,15 +1,16 @@
 import mongoose, { Document, Schema } from "mongoose";
 import { IRequest } from "@bootcamp/core";
 
+const statusEnum = ["pending", "accepted", "completed", "cancelled"];
 const RequestSchema: Schema = new Schema({
-  clientId: { type: String, required: true },
   technicianId: { type: String, required: true },
   description: { type: String, required: true },
+  clientId: { type: String, required: true },
   date: { type: Date, required: true },
   status: {
     type: String,
-    enum: ["pending", "accepted", "completed", "cancelled"],
-    default: "pending",
+    enum: statusEnum,
+    default: statusEnum,
   },
 });
 

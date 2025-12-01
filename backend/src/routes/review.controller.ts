@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import Review from "../models/Review.js";
+import Review from "../models/review.js";
 
 // Crear una reseña
 export const createReview = async (req: Request, res: Response) => {
@@ -15,7 +15,7 @@ export const createReview = async (req: Request, res: Response) => {
       technicianId,
       clientId,
       rating,
-      comment
+      comment,
     });
 
     return res.status(201).json(review);
@@ -23,7 +23,7 @@ export const createReview = async (req: Request, res: Response) => {
     console.error("Error creating review:", error);
     return res.status(500).json({
       message: "Error creating review",
-      error
+      error,
     });
   }
 };
@@ -38,7 +38,7 @@ export const getReviewsByTechnician = async (req: Request, res: Response) => {
     }
 
     const reviews = await Review.find({ technicianId }).sort({
-      createdAt: -1
+      createdAt: -1,
     });
 
     return res.status(200).json(reviews);
@@ -46,7 +46,7 @@ export const getReviewsByTechnician = async (req: Request, res: Response) => {
     console.error("Error retrieving reviews:", error);
     return res.status(500).json({
       message: "Error retrieving reviews",
-      error
+      error,
     });
   }
 };

@@ -3,11 +3,11 @@ import { IReview } from "@bootcamp/core";
 
 const ReviewSchema = new Schema(
   {
-    requestId: { type: String, required: true },
-    technicianId: { type: String, required: true },
-    clientId: { type: String, required: true },
     rating: { type: Number, required: true, min: 1, max: 5 },
-    comment: { type: String, default: "" }
+    technicianId: { type: String, required: true },
+    requestId: { type: String, required: true },
+    clientId: { type: String, required: true },
+    comment: { type: String },
   },
   { timestamps: true }
 );

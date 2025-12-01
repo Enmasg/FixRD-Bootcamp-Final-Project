@@ -1,5 +1,14 @@
 import { Document } from "mongoose";
 
+export type role = "client" | "technician";
+export interface IUser extends Document {
+  name: string;
+  email: string;
+  password: string;
+  role: role;
+  createAt: Date;
+}
+
 export interface ITechnician extends Document {
   userId: string;
   categories: string[];
@@ -8,11 +17,6 @@ export interface ITechnician extends Document {
   location: string;
   photo: string;
   rating: number;
-}
-
-export interface ApiResponse<T> {
-  success: boolean;
-  data: T;
 }
 
 export type status = "pending" | "accepted" | "completed" | "cancelled";
@@ -24,30 +28,15 @@ export interface IRequest extends Document {
   status: status;
 }
 
-export interface IUser extends Document{
-  _Id: string;
-  name: string;
-  email: string;
-  password: string;
-  role: "client" | "technician";
-  createDate: Date;
-}
-
-
-export interface IUser extends Document {
-  name: string;
-  email: string;
-  password: string;
-  role: "client" | "technician";
-}
-
 export interface IReview extends Document {
   requestId: string;
   technicianId: string;
   clientId: string;
   rating: number;
-  comment?: string;
-  // mongoose timestamps
-  createdAt?: Date;
-  updatedAt?: Date;
+  comment: string;
+}
+
+export interface ApiResponse<T> {
+  success: boolean;
+  data: T;
 }

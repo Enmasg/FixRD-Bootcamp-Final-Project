@@ -2,13 +2,13 @@ import mongoose, { Document, Schema } from "mongoose";
 import { ITechnician } from "@bootcamp/core";
 
 const TechnicianSchema: Schema = new Schema({
-  userId: { type: String, require: true },
   categories: { type: [String], default: [] },
   pricePerHour: { type: Number, default: 0 },
+  userId: { type: String, require: true },
   description: { type: String },
   location: { type: String },
-  photo: { type: String },
   rating: { type: Number },
+  photo: { type: String },
 });
 
 const Technician = mongoose.model<ITechnician>("technician", TechnicianSchema);

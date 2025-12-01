@@ -1,17 +1,15 @@
-import mongoose, { Schema } from "mongoose";
+import mongoose, { Document, Schema } from "mongoose";
 import { IUser } from "@bootcamp/core";
 
+const role = ["client", "technician"];
 const UserSchema: Schema = new Schema({
-  name: { type: String, required: true },
-
-  email: { type: String, required: true, unique: true },
-
-  password: { type: String, required: true },
-
-  role: {
-    type: String,
-    enum: ["client", "technician"],
-    default: "client",
+  role: { type: String, enum: role, default: role[0] },
+  password: { type: String, require: true },
+  email: { type: String, require: true },
+  name: { type: String, require: true },
+  createAt: {
+    type: Date,
+    default: Date.now,
   },
 });
 
