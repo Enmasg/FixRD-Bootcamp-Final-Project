@@ -1,0 +1,28 @@
+@font-face {
+  font-family: "moon_get-Heavy";
+  src: url("./assets/fonts/moon_get-Heavy.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "moon_get-Heavy2";
+  src: url("./assets/fonts/moon_get-Heavy.ttf") format("truetype");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: url("./assets/images/tecnico.png") no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+
+#root {
+  min-height: 100vh;
+}

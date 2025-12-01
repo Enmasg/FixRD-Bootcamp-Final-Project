@@ -1,4 +1,5 @@
 import express, { Request, Response, NextFunction } from "express";
+import errors from "./middlewares/errors.js";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
@@ -6,6 +7,10 @@ import errors from "./middlewares/errors.js";
 import userRoutes from "./routes/user.routes.js";
 import reviewRoutes from "./routes/review.routes.js";
 
+
+import technicianRoutes from "./routes/technicians.js";
+import requestRoutes from "./routes/requests.js";
+import { ApiResponse } from "@bootcamp/core";
 
 dotenv.config();
 
@@ -40,6 +45,13 @@ app.use(
 app.use("/api/users", userRoutes);
 app.use("/api/reviews", reviewRoutes);
 // Setup routes and middlewares
+app.use("/api", technicianRoutes);
+app.use("/api", requestRoutes);
+app.use("/", (req: Request, res: Response) => {
+  const response: ApiResponse<string> = { success: true, data: "Hello World!" };
+  res.status(200).json(response);
+});
+
 app.use(errors);
 
 

@@ -1,0 +1,23 @@
+/* ------------------------ricky--------------------------- */
+@font-face {
+  font-family: "Okine";
+  src: url("../assets/fonts/MADEOkineSansPERSONALUSE-Regular.otf")
+    format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Bold */
+@font-face {
+  font-family: "Okine";
+  src: url("../assets/fonts/MADEOkineSansPERSONALUSE-Bold.otf")
+    format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Título especial (moon_get) */
+@font-face {
+  font-family: "MoonGet";
+  src: url("../assets/fonts/moon_get-Heavy.otf") format("opentype");
+}

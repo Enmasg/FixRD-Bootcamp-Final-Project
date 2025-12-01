@@ -1,0 +1,48 @@
+.persona {
+  margin-top: 40px;
+  padding: 20px;
+  color: white;
+}
+
+.title {
+  text-align: center;
+  font-size: 34px;
+  margin-bottom: 35px;
+  color: #2ec4b6;
+}
+
+.persona-card {
+  background: #002233;
+  padding: 25px;
+  border-radius: 16px;
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.persona-avatar {
+  width: 140px;
+  height: 140px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.persona-info {
+  flex: 1;
+  line-height: 28px;
+}
+
+.persona-info p {
+  font-size: 17px;
+}
+
+.persona-skills span {
+  background: #2ec4b6;
+  padding: 6px 12px;
+  border-radius: 12px;
+  margin: 5px;
+  display: inline-block;
+  font-weight: bold;
+  color: black;
+}

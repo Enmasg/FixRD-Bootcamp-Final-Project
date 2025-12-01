@@ -1,0 +1,162 @@
+.how-it-works {
+  padding: 80px 24px;
+  text-align: center;
+  background: linear-gradient(160deg, #000000 0%, #011627 60%, #003049 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.how-it-works::before {
+  content: "";
+  position: absolute;
+  top: -120px;
+  left: 50%;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(
+    circle,
+    rgba(46, 196, 182, 0.08),
+    transparent 70%
+  );
+  transform: translateX(-50%);
+  filter: blur(120px);
+  z-index: 0;
+}
+
+.how-it-works h2 {
+  font-family: "moon_get-Heavy";
+  font-size: 2.5em;
+  font-weight: 700;
+  background: linear-gradient(90deg, #1b9aaa, #2ec4b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.how-it-works p {
+  max-width: 900px;
+  margin: 0 auto 64px;
+  color: rgba(253, 255, 252, 0.85);
+  font-size: 18px;
+  line-height: 1.7;
+  font-weight: 400;
+  position: relative;
+  z-index: 1;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.step {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 40px 24px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.step:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 20px rgba(46, 196, 182, 0.25);
+}
+
+.circle {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1b9aaa, #2ec4b6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  font-weight: 700;
+  color: white;
+  margin: 0 auto 20px;
+  box-shadow: 0 0 20px rgba(46, 196, 182, 0.25);
+}
+
+.step h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+  color: white;
+  font-weight: 700;
+}
+
+.step p {
+  color: rgba(253, 255, 252, 0.75);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* ===================== TESTIMONIALS ===================== */
+
+.testimonials {
+  padding: 80px 24px;
+  text-align: center;
+  background: linear-gradient(160deg, #000000 0%, #011627 100%);
+  color: #fdfffc;
+}
+
+.testimonials h2 {
+  font-size: 48px;
+  font-weight: 700;
+  background: linear-gradient(90deg, #1b9aaa, #2ec4b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 16px;
+}
+
+.testimonials p {
+  font-size: 18px;
+  color: rgba(253, 255, 252, 0.85);
+  max-width: 800px;
+  margin: 0 auto 48px;
+  line-height: 1.6;
+}
+
+.testimonial-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.testimonial {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 32px 24px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 20px rgba(46, 196, 182, 0.25);
+}
+
+.rating {
+  font-size: 24px;
+  color: #2ec4b6;
+  margin-bottom: 12px;
+}
+
+.testimonial h3 {
+  font-size: 20px;
+  margin-top: 16px;
+  color: white;
+  font-weight: 700;
+}
+
+.testimonial p {
+  font-size: 16px;
+  color: rgba(253, 255, 252, 0.75);
+  line-height: 1.5;
+}

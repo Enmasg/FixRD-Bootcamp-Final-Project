@@ -1,0 +1,81 @@
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: auto;
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1;
+  height: 75px;
+  border-bottom: 1px #6b6b6b solid;
+   font-family: "moon_get-Heavy";
+   font-size: 0.7em;
+ 
+
+}
+
+.logo-nav img {
+  margin-top: 25px;
+  filter: drop-shadow(5px 3px 4px #000);
+
+}
+
+
+
+.nav-sticky-list li {
+  position: relative;
+  display: inline-block;
+  font-size: 1em;
+  text-decoration: none;
+  list-style: none;
+}
+
+.list-item li a {
+  text-decoration: none;
+  color: aliceblue;
+  margin: 12px;
+  letter-spacing: 0.85px;
+}
+
+.list-item li a:hover {
+  color: #80ed99;
+}
+
+.btns-header {
+  display: flex;
+
+ 
+}
+
+.btn-login,
+.register {
+  
+  background: linear-gradient(to right, #1b9aaa, #2ec4b6, #80ed99);
+  border: none;
+   font-family: "moon_get-Heavy";
+  border-radius: 20px;
+  color: white;
+  padding: 15px 20px;
+  font-size: 0.9em;
+  cursor: pointer;
+  margin: 20px;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+.btn-login:hover {
+  background: #80ed99;
+  box-shadow: #00fb3b 0px 2px 15px;
+  transform: scale(1.2);
+  transition: 0.8s;
+}
+.register:hover {
+  background: #80ed99;
+  box-shadow: #00fb3b 0px 2px 15px;
+  transform: scale(1.2);
+  transition: 0.8s;
+}

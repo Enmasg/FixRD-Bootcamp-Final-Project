@@ -1,0 +1,28 @@
+.encabezado {
+  margin-top: 150px;
+  text-align: center;
+}
+
+h1 {
+  font-family: "moon_get-Heavy";
+  font-size: 3vw;
+  color: white;
+  filter: drop-shadow(1px 2px 3px #000);
+}
+
+span {
+  font-size: 1.4em;
+  padding: 8px;
+  background: linear-gradient(to right, #1b9aaa, #2ec4b6, #80ed99 40%);
+  background-clip: text;
+  background-size: 200% auto;
+  color: transparent;
+}
+
+p {
+  font-size: 1vw;
+  text-align: center;
+  color: #eeeeee;
+  font-family: sans-serif;
+  margin-top: 10px;
+}
