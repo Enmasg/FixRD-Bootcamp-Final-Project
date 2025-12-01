@@ -12,6 +12,7 @@ const verifyToken = (req: Request, res: Response, next: NextFunction) => {
       return res.status(500).json({ error: "Token inválido" });
     }
 
+    (req as any).user = decoded;
     next();
   });
 };

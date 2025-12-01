@@ -9,6 +9,21 @@ const url: string = "/technicians";
 
 const router = express.Router();
 
+// POST /api/technicians - Create technician
+router.post(url, verifyToken, async (req: Request, res: Response) => {
+  try {
+    const technician = new Technician(req.body);
+    const saved = await technician.save();
+    res.status(201).json(saved);
+  } catch (error) {
+    const errorMessage = (error as unknown as Error).message;
+    res.status(400).json({
+      message: "Error creating the technician",
+      error: env === "dev" ? errorMessage : undefined,
+    });
+  }
+});
+
 // GET /api/technicians/:id - View detailed profile
 router.get(url + "/:id", verifyToken, async (req: Request, res: Response) => {
   try {
@@ -30,8 +45,44 @@ router.get(url + "/:id", verifyToken, async (req: Request, res: Response) => {
 
 // GET /api/technicians - List technicians (with filters)
 router.get(url, verifyToken, async (req: Request, res: Response) => {
+  const { category, location, minRating, maxRating, minPrice, maxPrice } =
+    req.query;
+  const filter: any = {};
+
+  // Filter by category (searches in categories array)
+  if (category) {
+    filter.categories = category;
+  }
+
+  // Filter by location (case-insensitive partial match)
+  if (location) {
+    filter.location = { $regex: location, $options: "i" };
+  }
+
+  // Filter by rating range
+  if (minRating || maxRating) {
+    filter.rating = {};
+    if (minRating) {
+      filter.rating.$gte = Number(minRating);
+    }
+    if (maxRating) {
+      filter.rating.$lte = Number(maxRating);
+    }
+  }
+
+  // Filter by price per hour range
+  if (minPrice || maxPrice) {
+    filter.pricePerHour = {};
+    if (minPrice) {
+      filter.pricePerHour.$gte = Number(minPrice);
+    }
+    if (maxPrice) {
+      filter.pricePerHour.$lte = Number(maxPrice);
+    }
+  }
+
   try {
-    const technicians = await Technician.find();
+    const technicians = await Technician.find(filter);
     res.status(200).send(technicians);
   } catch (error) {
     const errorMessage = (error as unknown as Error).message;

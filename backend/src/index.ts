@@ -42,8 +42,8 @@ app.use(
 app.use("/api", technicianRoutes);
 app.use("/api", requestRoutes);
 app.use("/api", reviewRoutes);
-app.use("/", authRoutes);
-app.use("/", userRoutes);
+app.use("/api", authRoutes);
+app.use("/api", userRoutes);
 
 app.get("/", (req: Request, res: Response) => {
   const response: ApiResponse<string> = { success: true, data: "Hello World!" };

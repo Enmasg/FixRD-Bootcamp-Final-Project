@@ -13,10 +13,7 @@ userRouter.get(
   async (req: Request, res: Response) => {
     res.json({
       error: null,
-      data: {
-        title: "Ruta protegida: me",
-        user: req.body,
-      },
+      data: (req as any).user,
     });
   }
 );
