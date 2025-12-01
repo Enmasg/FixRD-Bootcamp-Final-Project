@@ -1,13 +1,14 @@
-import express, { Request, Response, NextFunction } from "express";
-import User from "../models/user.js";
-import { IUser } from "@bootcamp/core";
-import mongoose, { Types } from "mongoose";
+import express, { Request, Response } from "express";
+import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 import joi from "joi";
-import jwt from "jsonwebtoken";
+
+import { IUser } from "@bootcamp/core";
+import User from "../models/user.js";
 
 const env: string = process.env.NODE_ENV || "dev";
 const url: string = "/auth";
+
 const authRouter = express.Router();
 
 const schemaRegister = joi.object({
@@ -16,7 +17,13 @@ const schemaRegister = joi.object({
   password: joi.string().min(6).max(255).required(),
 });
 
-authRouter.post("/register", async (req: Request, res: Response) => {
+const schemaLogin = joi.object({
+  email: joi.string().min(6).max(255).required().email(),
+  password: joi.string().min(6).max(255).required(),
+});
+
+// POST /api/auth/register - User registration
+authRouter.post(url + "/register", async (req: Request, res: Response) => {
   const { error } = schemaRegister.validate(req.body);
   if (error) {
     return res.status(400).json({ error: error.details });
@@ -40,12 +47,8 @@ authRouter.post("/register", async (req: Request, res: Response) => {
   }
 });
 
-const schemaLogin = joi.object({
-  email: joi.string().min(6).max(255).required().email(),
-  password: joi.string().min(6).max(255).required(),
-});
-
-authRouter.post("/login", async (req: Request, res: Response) => {
+// POST /api/auth/login - Login
+authRouter.post(url + "/login", async (req: Request, res: Response) => {
   const { error } = schemaLogin.validate(req.body);
   if (error) {
     return res.status(400).json({ error: error.message });
@@ -66,7 +69,7 @@ authRouter.post("/login", async (req: Request, res: Response) => {
 
   const token = jwt.sign(
     {
-      _id: usuario._Id,
+      _id: usuario._id,
       name: usuario.name,
       email: usuario.email,
     },

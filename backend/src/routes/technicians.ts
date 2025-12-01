@@ -1,13 +1,15 @@
 import express, { Request, Response, NextFunction } from "express";
+import mongoose, { Types } from "mongoose";
+
 import Technician from "../models/technician.js";
 import { ITechnician } from "@bootcamp/core";
-import mongoose, { Types } from "mongoose";
 
 const env: string = process.env.NODE_ENV || "dev";
 const url: string = "/technicians";
+
 const router = express.Router();
 
-// View detailed profile
+// GET /api/technicians/:id - View detailed profile
 router.get(url + "/:id", async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
@@ -26,7 +28,7 @@ router.get(url + "/:id", async (req: Request, res: Response) => {
   }
 });
 
-// List all technicians (filters by category and area)
+// GET /api/technicians - List technicians (with filters)
 router.get(url, async (req: Request, res: Response) => {
   try {
     const technicians = await Technician.find();
@@ -40,7 +42,7 @@ router.get(url, async (req: Request, res: Response) => {
   }
 });
 
-// Update by the technician
+// PUT /api/technicians/:id - Update profile
 router.put(url + "/:id", async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
@@ -59,7 +61,7 @@ router.put(url + "/:id", async (req: Request, res: Response) => {
   }
 });
 
-// Eliminar cuenta
+// DELETE /api/technicians/:id - Delete account
 router.delete(url + "/:id", async (req: Request, res: Response) => {
   try {
     const { id } = req.params;

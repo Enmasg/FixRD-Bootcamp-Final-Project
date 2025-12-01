@@ -1,8 +1,14 @@
 import { Request, Response } from "express";
 import Review from "../models/review.js";
+import { Router } from "express";
 
-// Crear una reseña
-export const createReview = async (req: Request, res: Response) => {
+const env: string = process.env.NODE_ENV || "dev";
+const url: string = "/reviews";
+
+const router = Router();
+
+// POST /api/reviews - Create review
+router.post(url, async (req: Request, res: Response) => {
   try {
     const { requestId, technicianId, clientId, rating, comment } = req.body;
 
@@ -26,10 +32,10 @@ export const createReview = async (req: Request, res: Response) => {
       error,
     });
   }
-};
+});
 
-// Obtener todas las reseñas de un técnico
-export const getReviewsByTechnician = async (req: Request, res: Response) => {
+// GET /api/reviews/:technicianId - Get reviews of a technician
+router.get(url + "/:technicianId", async (req: Request, res: Response) => {
   try {
     const { technicianId } = req.params;
 
@@ -49,4 +55,6 @@ export const getReviewsByTechnician = async (req: Request, res: Response) => {
       error,
     });
   }
-};
+});
+
+export default router;
