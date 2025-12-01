@@ -18,7 +18,24 @@ router.post(url, verifyToken, async (req: Request, res: Response) => {
   } catch (error) {
     const errorMessage = (error as unknown as Error).message;
     res.status(400).json({
-      message: "Error creating the technician",
+      message: "Error creating the technician.",
+      error: env === "dev" ? errorMessage : undefined,
+    });
+  }
+});
+
+// GET /api/technicians/top - Get top 10 technicians by rating
+router.get(url + "/top", verifyToken, async (req: Request, res: Response) => {
+  try {
+    const topTechnicians = await Technician.find()
+      .sort({ rating: -1 })
+      .limit(10);
+
+    res.status(200).json(topTechnicians);
+  } catch (error) {
+    const errorMessage = (error as unknown as Error).message;
+    res.status(400).json({
+      message: "Error fetching top technicians.",
       error: env === "dev" ? errorMessage : undefined,
     });
   }
@@ -29,7 +46,7 @@ router.get(url + "/:id", verifyToken, async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
     if (!Types.ObjectId.isValid(id!)) {
-      return res.status(400).json({ message: "Invalid ID" });
+      return res.status(400).json({ message: "Invalid ID." });
     }
 
     const technician = await Technician.findById(id);
@@ -37,7 +54,7 @@ router.get(url + "/:id", verifyToken, async (req: Request, res: Response) => {
   } catch (error) {
     const errorMessage = (error as unknown as Error).message;
     res.status(400).json({
-      message: "Error finding the technician",
+      message: "Error finding the technician.",
       error: env === "dev" ? errorMessage : undefined,
     });
   }
@@ -87,7 +104,7 @@ router.get(url, verifyToken, async (req: Request, res: Response) => {
   } catch (error) {
     const errorMessage = (error as unknown as Error).message;
     res.status(400).json({
-      message: "Error fetching technicians",
+      message: "Error fetching technicians.",
       error: env === "dev" ? errorMessage : undefined,
     });
   }
@@ -106,7 +123,7 @@ router.put(url + "/:id", verifyToken, async (req: Request, res: Response) => {
   } catch (error) {
     const errorMessage = (error as unknown as Error).message;
     res.status(400).json({
-      message: "Error updating the technician",
+      message: "Error updating the technician.",
       error: env === "dev" ? errorMessage : undefined,
     });
   }
@@ -128,7 +145,7 @@ router.delete(
     } catch (error) {
       const errorMessage = (error as unknown as Error).message;
       res.status(400).json({
-        message: "Error updating the technician",
+        message: "Error deleting technician.",
         error: env === "dev" ? errorMessage : undefined,
       });
     }

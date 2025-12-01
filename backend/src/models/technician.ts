@@ -2,12 +2,12 @@ import mongoose, { Document, Schema } from "mongoose";
 import { ITechnician } from "@bootcamp/core";
 
 const TechnicianSchema: Schema = new Schema({
+  userId: { type: String, require: true, unique: true },
   categories: { type: [String], default: [] },
   pricePerHour: { type: Number, default: 0 },
-  userId: { type: String, require: true },
+  rating: { type: Number, default: 0 },
   description: { type: String },
   location: { type: String },
-  rating: { type: Number },
   photo: { type: String },
 });
 

@@ -1,4 +1,6 @@
 import { Router, Request, Response } from "express";
+import { Types } from "mongoose";
+
 import RequestModel from "../models/request.js";
 import verifyToken from "../middlewares/auth.js";
 
@@ -25,33 +27,40 @@ router.get(url, verifyToken, async (req: Request, res: Response) => {
 });
 
 // PUT /api/requests/:id - Update status
-router.put(
-  url + "/:id/status",
-  verifyToken,
-  async (req: Request, res: Response) => {
-    try {
-      const updated = await RequestModel.findByIdAndUpdate(
-        req.params.id,
-        { status: req.body.status },
-        { new: true }
-      );
-
-      if (!updated) return res.status(404).json({ message: "Not found" });
-      res.json(updated);
-    } catch (err) {
-      res.status(400).json({ error: err });
+router.put(url + "/:id", verifyToken, async (req: Request, res: Response) => {
+  try {
+    const { id } = req.params;
+    if (!Types.ObjectId.isValid(id!)) {
+      return res.status(400).json({ message: "Invalid ID" });
     }
+
+    await RequestModel.updateOne({ _id: id }, req.body);
+    res.status(200).send({ message: "Ok", status: 200 });
+  } catch (error) {
+    res.status(400).json({ error });
   }
-);
+});
 
 // DELETE /api/requests/:id - Cancel request
 router.delete(
   url + "/:id",
   verifyToken,
   async (req: Request, res: Response) => {
-    const deleted = await RequestModel.findByIdAndDelete(req.params.id);
-    if (!deleted) return res.status(404).json({ message: "Not found" });
-    res.json({ message: "Deleted" });
+    try {
+      const { id } = req.params;
+      if (!Types.ObjectId.isValid(id!)) {
+        return res.status(400).json({ message: "Invalid ID" });
+      }
+
+      await RequestModel.deleteOne({ _id: id });
+      res.status(204).send();
+    } catch (error) {
+      const errorMessage = (error as unknown as Error).message;
+      res.status(400).json({
+        message: "Error updating the technician",
+        error: env === "dev" ? errorMessage : undefined,
+      });
+    }
   }
 );
 

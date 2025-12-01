@@ -10,7 +10,7 @@ const RequestSchema: Schema = new Schema({
   status: {
     type: String,
     enum: statusEnum,
-    default: statusEnum,
+    default: statusEnum[0],
   },
 });
 

@@ -1,5 +1,6 @@
 import express, { Request, Response } from "express";
 import verifyToken from "../middlewares/auth.js";
+import User from "../models/user.js";
 
 const env: string = process.env.NODE_ENV || "dev";
 const url: string = "/users";
@@ -11,10 +12,13 @@ userRouter.get(
   url + "/me",
   verifyToken,
   async (req: Request, res: Response) => {
-    res.json({
-      error: null,
-      data: (req as any).user,
-    });
+    const userInfo = (req as any).user;
+    const user = await User.findOne({ email: userInfo.email });
+
+    userInfo.name = user?.name;
+    userInfo.id = user?._id;
+
+    res.status(200).json({ userInfo });
   }
 );
 
