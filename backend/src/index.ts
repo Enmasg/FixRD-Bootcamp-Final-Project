@@ -5,10 +5,12 @@ import cors from "cors";
 
 import { ApiResponse } from "@bootcamp/core";
 import errors from "./middlewares/errors.js";
+
 import technicianRoutes from "./routes/technicians.js";
 import requestRoutes from "./routes/requests.js";
 import reviewRoutes from "./routes/reviews.js";
 import userRoutes from "./routes/users.js";
+import authRoutes from "./routes/auth.js";
 
 dotenv.config();
 
@@ -40,9 +42,10 @@ app.use(
 app.use("/api", technicianRoutes);
 app.use("/api", requestRoutes);
 app.use("/api", reviewRoutes);
-app.use("/api", userRoutes);
+app.use("/", authRoutes);
+app.use("/", userRoutes);
 
-app.use("/", (req: Request, res: Response) => {
+app.get("/", (req: Request, res: Response) => {
   const response: ApiResponse<string> = { success: true, data: "Hello World!" };
   res.status(200).json(response);
 });
