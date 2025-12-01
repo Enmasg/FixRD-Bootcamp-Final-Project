@@ -8,6 +8,7 @@ import SearchForm from "../components/SearchForm";
 import ServicesSection from "../components/ServicesSection";
 import TopTechniciansSection from "../components/TopTechniciansSection";
 import UneteTecnico from "../components/UneteTecnico";
+import TechnicianDashboard from "./TechnicianDashboard";
 
 const Home = () => {
   return (
@@ -18,6 +19,7 @@ const Home = () => {
       <main className="home-main">
         <ServicesSection />
         <TopTechniciansSection />
+
       </main>
 
       <ComoFunciona />
