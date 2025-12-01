@@ -30,10 +30,11 @@
   box-shadow: #00e1ff 0px 1px 5px;
 }
 
-.text-red-500 {
+.text-red-501 {
   color: #d90000;
-  font-size: 12px;
-  margin: 15px;
+  font-family: sans-serif;
+  font-size: 14px;
+  margin-top: 20px;
 
 }
 

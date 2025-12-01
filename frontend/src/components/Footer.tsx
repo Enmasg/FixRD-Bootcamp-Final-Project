@@ -3,6 +3,7 @@ import "./Footer.css";
 
 const Footer = () => {
   return (
+    
     <footer className="footer">
       <p className="footer-text">© 2025 Mi Proyecto - Todos los derechos reservados</p>
 
@@ -34,6 +35,7 @@ const Footer = () => {
         <a href="/" className="regresar">
           Volver a Home
         </a>
+        
       </div>
     </footer>
   );

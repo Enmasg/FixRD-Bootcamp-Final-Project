@@ -8,6 +8,7 @@ const ServicesSection: React.FC = () => {
   const services: Service[] = servicesMock; // Más adelante se puede cambiar a fetch API
 
   return (
+    <div className="contenedorservices">
     <section className="home-section services-section" id="services">
       <div className="section-header">
         <h2 className="section-title">
@@ -37,6 +38,7 @@ const ServicesSection: React.FC = () => {
         ))}
       </div>
     </section>
+    </div>
   );
 };
 
