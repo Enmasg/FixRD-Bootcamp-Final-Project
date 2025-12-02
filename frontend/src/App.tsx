@@ -8,6 +8,7 @@ import UneteTecnico from "./components/UneteTecnico";
 import Footer from "./components/Footer";
 import FAQ from "./components/FAQ";
 import TecnicoTarjeta from "./pages/catalogo";
+import PerfilCliente from "./pages/PerfilCliente";
 
 function App() {
   return (
