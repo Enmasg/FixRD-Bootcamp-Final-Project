@@ -36,8 +36,8 @@ authRouter.post(url + "/register", async (req: Request, res: Response) => {
     const salt = await bcrypt.genSalt();
     newUser.password = await bcrypt.hash(newUser.password, salt);
 
-    const saved = await newUser.save();
-    res.status(201).json(saved);
+    await newUser.save();
+    res.status(204).send();
   } catch (err) {
     res.status(400).json({ error: err });
   }
