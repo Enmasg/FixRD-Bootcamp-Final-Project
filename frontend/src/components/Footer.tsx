@@ -3,12 +3,13 @@ import "./Footer.css";
 
 const Footer = () => {
   return (
+    
     <footer className="footer">
       <p className="footer-text">© 2025 Mi Proyecto - Todos los derechos reservados</p>
 
       <div className="footer-icons">
         <a
-          href="https://facebook.com"
+          href="https://www.facebook.com/talendigrd/"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -16,7 +17,7 @@ const Footer = () => {
         </a>
 
         <a
-          href="https://instagram.com"
+          href="https://www.instagram.com/talendigrd/?hl=en"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -34,6 +35,7 @@ const Footer = () => {
         <a href="/" className="regresar">
           Volver a Home
         </a>
+        
       </div>
     </footer>
   );

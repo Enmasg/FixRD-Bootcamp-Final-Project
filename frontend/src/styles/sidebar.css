@@ -1,0 +1,113 @@
+.sidebar {
+  width: 280px;
+  min-height: 100vh;
+  background: #001b29;
+  padding: 25px;
+  border-right: 2px solid #003344;
+  color: white;
+}
+
+.profile-card {
+  text-align: center;
+}
+
+.profile-avatar {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.profile-name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.profile-role {
+  opacity: 0.8;
+}
+
+.profile-status {
+  display: inline-block;
+  margin: 10px 0;
+  padding: 5px 12px;
+  background: #2ec4b6;
+  color: black;
+  border-radius: 12px;
+  font-weight: bold;
+}
+
+.certs span {
+  display: inline-block;
+  margin: 5px 4px;
+  padding: 6px 10px;
+  background: #003c48;
+  border-radius: 8px;
+  font-size: 12px;
+}
+
+.profile-btn {
+  margin-top: 12px;
+  width: 100%;
+  padding: 10px 0;
+  background: #2ec4b6;
+  border: none;
+  border-radius: 12px;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.toggles {
+  margin-top: 35px;
+}
+
+.toggles h4 {
+  margin-top: 20px;
+  font-size: 17px;
+}
+
+/* SWITCH */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 45px;
+  height: 23px;
+  margin-left: 10px;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  background-color: #aaa;
+  border-radius: 34px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  width: 18px;
+  height: 18px;
+  left: 3px;
+  bottom: 2.5px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #2ec4b6;
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px);
+}

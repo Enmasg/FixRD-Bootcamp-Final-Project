@@ -51,7 +51,11 @@ Instalar Verdaccio
 npm install -g verdaccio
 ```
 
-Correr
+Correr Verdaccio
+
+```
+verdaccio
+```
 
 Crear usuario
 

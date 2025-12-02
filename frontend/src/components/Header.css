@@ -5,7 +5,7 @@ header {
   width: 100%;
   padding: auto;
   background: rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(25px);
+  backdrop-filter: blur(20px);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -19,8 +19,12 @@ header {
 }
 
 .logo-nav img {
+  margin-top: 25px;
   filter: drop-shadow(5px 3px 4px #000);
+
 }
+
+
 
 .nav-sticky-list li {
   position: relative;
