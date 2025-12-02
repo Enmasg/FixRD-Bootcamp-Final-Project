@@ -15,6 +15,11 @@ import LoginRegistro from "./pages/LoginRegistro";
 import TecnicoRegistro from "./pages/TecnicoRegistro";
 import AcercaDe from "./components/AcercaDe";
 
+import TechnicianDashboard from "./pages/TechnicianDashboard";
+import LoginRegistro from "./pages/LoginRegistro";
+import TecnicoRegistro from "./pages/TecnicoRegistro";
+import AcercaDe from "./components/AcercaDe";
+
 function App() {
   return (
     <BrowserRouter>
@@ -36,7 +41,13 @@ function App() {
         
         {/* Dashboard del técnico */}
         <Route path="/tecnico" element={<TechnicianDashboard />} />
+<<<<<<< HEAD
       </Routes>
+=======
+        
+      </Routes>
+       <Footer/>
+>>>>>>> a989a0f6fc35c83d64f0347a85463d0c70b4876a
     </BrowserRouter>
   );
 }
