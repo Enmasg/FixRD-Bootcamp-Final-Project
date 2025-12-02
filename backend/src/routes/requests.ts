@@ -1,16 +1,16 @@
 import { Router, Request, Response } from "express";
-import mongoose, { Schema, Document } from "mongoose";
-import RequestModel from "../models/request.js";
+import { Types } from "mongoose";
 
+import RequestModel from "../models/request.js";
+import verifyToken from "../middlewares/auth.js";
+
+const env: string = process.env.NODE_ENV || "dev";
 const url: string = "/requests";
+
 const router = Router();
 
-router.get(url, async (req: Request, res: Response) => {
-  const requests = await RequestModel.find();
-  res.json(requests);
-});
-
-router.post(url, async (req: Request, res: Response) => {
+// POST /api/requests - Create request
+router.post(url, verifyToken, async (req: Request, res: Response) => {
   try {
     const request = new RequestModel(req.body);
     const saved = await request.save();
@@ -20,27 +20,48 @@ router.post(url, async (req: Request, res: Response) => {
   }
 });
 
-//Not sure, pero para usar el metodo update con metodo de moongose creo que seria con findById en vez de FindOneAndUpdate
+// GET /api/requests - List requests
+router.get(url, verifyToken, async (req: Request, res: Response) => {
+  const requests = await RequestModel.find();
+  res.json(requests);
+});
 
-router.put(url + "/:id/status", async (req: Request, res: Response) => {
+// PUT /api/requests/:id - Update status
+router.put(url + "/:id", verifyToken, async (req: Request, res: Response) => {
   try {
-    const updated = await RequestModel.findByIdAndUpdate(
-      req.params.id,
-      { status: req.body.status },
-      { new: true }
-    );
+    const { id } = req.params;
+    if (!Types.ObjectId.isValid(id!)) {
+      return res.status(400).json({ message: "Invalid ID" });
+    }
 
-    if (!updated) return res.status(404).json({ message: "Not found" });
-    res.json(updated);
-  } catch (err) {
-    res.status(400).json({ error: err });
+    await RequestModel.updateOne({ _id: id }, req.body);
+    res.status(200).send({ message: "Ok", status: 200 });
+  } catch (error) {
+    res.status(400).json({ error });
   }
 });
 
-router.delete(url + "/:id", async (req: Request, res: Response) => {
-  const deleted = await RequestModel.findByIdAndDelete(req.params.id);
-  if (!deleted) return res.status(404).json({ message: "Not found" });
-  res.json({ message: "Deleted" });
-});
+// DELETE /api/requests/:id - Cancel request
+router.delete(
+  url + "/:id",
+  verifyToken,
+  async (req: Request, res: Response) => {
+    try {
+      const { id } = req.params;
+      if (!Types.ObjectId.isValid(id!)) {
+        return res.status(400).json({ message: "Invalid ID" });
+      }
+
+      await RequestModel.deleteOne({ _id: id });
+      res.status(204).send();
+    } catch (error) {
+      const errorMessage = (error as unknown as Error).message;
+      res.status(400).json({
+        message: "Error updating the technician",
+        error: env === "dev" ? errorMessage : undefined,
+      });
+    }
+  }
+);
 
 export default router;
