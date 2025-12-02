@@ -1,0 +1,564 @@
+/* === Fuente local === */
+@font-face {
+  font-family: "MiFuente";
+  src: url("./fuentes/moon_get-Heavy.ttf") format("truetype");
+  font-weight: 700;
+  /* Heavy/Bold */
+  font-style: normal;
+}
+
+/* === Paleta de colores y variables === */
+:root {
+  --bg-dark: #011627;
+  --bg-alt: #000000;
+  --accent1: #1b9aaa;
+  --accent2: #2ec4b6;
+  --hover: #80ed99;
+  --text-light: #fdfffc;
+  --white: #ffffff;
+
+  --heading-font: "MiFuente", sans-serif;
+  --body-font: sans-serif;
+  /* si no tienes Regular, usamos sans genérica */
+}
+
+/* === Fondo general === */
+body {
+  background: linear-gradient(180deg, var(--bg-dark), var(--bg-alt), #003049);
+  color: var(--text-light);
+  margin: 0;
+  font-family: var(--body-font);
+  overflow-x: hidden;
+}
+
+/* =============================
+   SECCIÓN CLIENT PERSONA ///MElANIE REINOSO//
+============================= */
+
+.persona-section {
+  width: 100%;
+  padding: 80px 24px;
+  background: linear-gradient(160deg,
+      var(--bg-dark) 0%,
+      var(--bg-alt) 60%,
+      #003049 100%);
+  display: flex;
+  justify-content: center;
+  color: var(--text-light);
+}
+
+.persona-container {
+  width: 90%;
+  max-width: 1300px;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 40px;
+  padding: 40px;
+  border-radius: 30px;
+
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* -----------------------------
+   IZQUIERDA
+------------------------------ */
+
+.persona-left {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.persona-photo {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 20px rgba(46, 196, 182, 0.25);
+}
+
+.persona-name {
+  font-family: var(--heading-font);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.persona-info,
+.persona-location {
+  font-size: 16px;
+  color: rgba(253, 255, 252, 0.85);
+}
+
+/* -----------------------------
+   TARJETAS
+------------------------------ */
+
+.persona-card {
+  padding: 22px;
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+
+  font-family: var(--body-font);
+  color: var(--text-light);
+}
+
+.persona-card h3 {
+  font-family: var(--heading-font);
+  font-size: 20px;
+  margin-bottom: 10px;
+  font-weight: 700;
+  background: linear-gradient(90deg, var(--accent1), var(--accent2));
+
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.persona-card p,
+.persona-card ul li {
+  font-size: 15px;
+  color: rgba(253, 255, 252, 0.75);
+  line-height: 1.6;
+}
+
+.persona-card ul {
+  padding-left: 20px;
+}
+
+/* -----------------------------
+   DERECHA
+------------------------------ */
+
+.persona-right {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* -----------------------------
+   RESPONSIVE
+------------------------------ */
+
+@media (max-width: 900px) {
+  .persona-container {
+    grid-template-columns: 1fr;
+  }
+
+  .persona-left {
+    align-items: center;
+    text-align: center;
+  }
+
+  .persona-card ul {
+    text-align: left;
+  }
+}
+
+/* === Sección Historia de Usuario === */
+.user-story {
+  padding: 80px 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-story-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 60px 40px;
+  max-width: 1400px;
+  text-align: center;
+  color: var(--text-light);
+  backdrop-filter: blur(8px);
+}
+
+.user-story-card h2 {
+  font-family: var(--heading-font);
+  font-size: 42px;
+  margin-bottom: 30px;
+  color: var(--white);
+}
+
+.user-story-card p {
+  font-size: 26px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+  font-style: italic;
+  font-weight: 300;
+}
+
+.user-flow-section {
+  padding: 80px 20px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.user-flow-section h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 50px;
+}
+
+.user-flow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  position: relative;
+}
+
+.flow-step {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.icon-circle {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: #1e4b59;
+  /* mismo tono teal oscuro */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  color: #7edce2;
+  /* icon color teal */
+}
+
+.flow-step p {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.flow-line {
+  width: 2px;
+  height: 40px;
+  background: #1e4b59;
+}
+
+/* <!--///// MELANIE REINOSO--> */
+
+/* =========================================================
+      DASHBOARD — AISLADO · JOUSTINTT
+   ========================================================= */
+
+/* Contenedor general */
+.wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  gap: 30px;
+  padding: 20px 0;
+}
+
+/* GRID PRINCIPAL (3 columnas) */
+.grid-top {
+  display: grid;
+  grid-template-columns: 300px 1fr 320px;
+  gap: 24px;
+  align-items: start;
+}
+
+/* Columnas */
+.left-col,
+.center-col,
+.right-col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Tarjetas principales del dashboard */
+.card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(6px);
+}
+
+/* ===========================
+        PERFIL
+   =========================== */
+
+.profile {
+  text-align: center;
+  padding: 28px;
+}
+
+.avatar {
+  width: 86px;
+  height: 86px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 0 auto 14px;
+  border: 4px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45);
+}
+
+.profile h3 {
+  font-size: 18px;
+  color: #e7f6fb;
+  margin-bottom: 6px;
+}
+
+.profile .muted {
+  color: rgba(225, 235, 240, 0.65);
+  font-size: 14px;
+  margin-bottom: 14px;
+}
+
+.btn-dashboard {
+  background: #0fb5a0;
+  color: white;
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.btn-dashboard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* ===========================
+      NOTIFICACIONES
+   =========================== */
+
+.notifications h4 {
+  margin-bottom: 15px;
+  color: #e9f7fb;
+}
+
+.notify-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 12px 0;
+  color: rgba(210, 230, 235, 0.9);
+}
+
+/* SWITCH corregido (usa "swich" como tu HTML) */
+.swich {
+  position: relative;
+  width: 46px;
+  height: 26px;
+  display: inline-block;
+}
+
+.swich input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.swich .slider {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 800px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.swich .slider:before {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: white;
+  transition: 0.25s;
+}
+
+.swich input:checked+.slider {
+  background: linear-gradient(90deg, #12b8c4, #0fa0ff);
+}
+
+.swich input:checked+.slider:before {
+  transform: translateX(20px);
+}
+
+/* ===========================
+         ACTIVIDAD
+   =========================== */
+
+.activity h4 {
+  color: #e9f7fb;
+  margin-bottom: 15px;
+}
+
+.task {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  padding: 19px;
+  margin-bottom: 12px;
+  margin-top: 12px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.02);
+}
+
+.task strong {
+  color: #ffffff;
+}
+
+.muted.small {
+  font-size: 12px;
+  color: rgba(210, 230, 235, 0.6);
+}
+
+/* Badges */
+.badge {
+  padding: 6px 12px;
+  font-size: 12px;
+  border-radius: 999px;
+  font-weight: 700;
+  color: #062427;
+}
+
+.badge.green {
+  background: #9be6c9;
+}
+
+.badge.yellow {
+  background: #f0d384;
+}
+
+.badge.blue {
+  background: #b7d5ff;
+}
+
+/* enlace detalles */
+.details {
+  position: absolute;
+  left: 0;
+  bottom: -18px;
+  margin: 12px;
+  font-size: 9px;
+  color: #56d7e8;
+  text-decoration: none;
+}
+
+/* ===========================
+      HISTORIAL + RESEÑAS
+   =========================== */
+
+.small h4 {
+  margin-bottom: 10px;
+  color: #e9f7fb;
+}
+
+.history {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: rgba(220, 230, 235, 0.85);
+}
+
+.history li {
+  padding: 10px 0;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
+}
+
+.link {
+  color: #55c7d8;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 8px;
+}
+
+/* ===========================
+      ACCIONES
+   =========================== */
+
+.action-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: rgba(220, 230, 235, 0.9);
+}
+
+.action-list li {
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.action-list li.danger {
+  color: #ff6b6b;
+  font-weight: 700;
+}
+
+/* ===========================
+  INFORMACIÓN TÉCNICA INFERIOR
+   =========================== */
+
+.technical {
+  padding: 28px;
+  border-radius: 18px;
+}
+
+.technical h3 {
+  color: #f1fbff;
+  margin-bottom: 20px;
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.info-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  padding: 18px;
+  border-radius: 12px;
+}
+
+.info-card h5 {
+  margin-bottom: 10px;
+  color: #d9e6ea;
+}
+
+.info-card p {
+  color: rgba(255, 255, 255, 0.85);
+  margin: 4px 0;
+}
+
+/* ===========================
+      RESPONSIVE
+   =========================== */
+
+@media (max-width: 980px) {
+  .grid-top {
+    grid-template-columns: 1fr;
+  }
+
+  .tech-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+      DASHBOARD — AISLADO · JOUSTINTT
+   ========================================================= */

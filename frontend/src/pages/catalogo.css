@@ -62,7 +62,11 @@
 .filter-group select {
   
 font-size: 1em;
+<<<<<<< HEAD
   color: #011627;
+=======
+  color: #ffffff;
+>>>>>>> a989a0f6fc35c83d64f0347a85463d0c70b4876a
   width: 100%;
   padding: 6px 8px;
   margin-bottom: 5px;

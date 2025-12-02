@@ -11,7 +11,11 @@ import {
 } from "react-icons/fa";
 import { MdMarkEmailRead, MdHomeRepairService } from "react-icons/md";
 import { CiLocationOn } from "react-icons/ci";
+<<<<<<< HEAD
 import { Link } from "react-router-dom";
+=======
+import { Link, useNavigate } from "react-router-dom";
+>>>>>>> a989a0f6fc35c83d64f0347a85463d0c70b4876a
 
 type TypeIniditialValues = {
   nombre: string;
@@ -87,6 +91,10 @@ const TecnicoRegistro = () => {
   });
 
   console.log(errors);
+<<<<<<< HEAD
+=======
+  const navigate = useNavigate()
+>>>>>>> a989a0f6fc35c83d64f0347a85463d0c70b4876a
 
   return (
 
@@ -101,7 +109,11 @@ const TecnicoRegistro = () => {
           <p className="slogan">Encuentra técnicos certificados en FixRD</p>
           <div className="tipo-usuario">
             <p className="link-cliente">
+<<<<<<< HEAD
   ¿Eres cliente? <Link to="/">Ir a Cliente</Link>
+=======
+  ¿Eres cliente? <Link to="/login">Ir a Cliente</Link>
+>>>>>>> a989a0f6fc35c83d64f0347a85463d0c70b4876a
 </p>
           </div>
           <div className="input-tecnico">
@@ -324,7 +336,12 @@ const TecnicoRegistro = () => {
             </label>
           </div>
 
+<<<<<<< HEAD
           <button type="submit" className="btn">
+=======
+          <button type="submit" className="btn" onClick={() => navigate("/tecnico")}> 
+          
+>>>>>>> a989a0f6fc35c83d64f0347a85463d0c70b4876a
             Registrarse
           </button>
 
