@@ -11,7 +11,7 @@ import {
 } from "react-icons/fa";
 import { MdMarkEmailRead, MdHomeRepairService } from "react-icons/md";
 import { CiLocationOn } from "react-icons/ci";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 type TypeIniditialValues = {
   nombre: string;
@@ -87,6 +87,7 @@ const TecnicoRegistro = () => {
   });
 
   console.log(errors);
+  const navigate = useNavigate()
 
   return (
 
@@ -324,7 +325,8 @@ const TecnicoRegistro = () => {
             </label>
           </div>
 
-          <button type="submit" className="btn">
+          <button type="submit" className="btn" onClick={() => navigate("/tecnico")}> 
+          
             Registrarse
           </button>
 

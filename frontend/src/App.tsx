@@ -35,7 +35,9 @@ function App() {
         
         {/* Dashboard del técnico */}
         <Route path="/tecnico" element={<TechnicianDashboard />} />
+        
       </Routes>
+       <Footer/>
     </BrowserRouter>
   );
 }
