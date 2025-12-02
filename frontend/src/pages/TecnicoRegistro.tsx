@@ -101,7 +101,7 @@ const TecnicoRegistro = () => {
           <p className="slogan">Encuentra técnicos certificados en FixRD</p>
           <div className="tipo-usuario">
             <p className="link-cliente">
-  ¿Eres cliente? <Link to="/">Ir a Cliente</Link>
+  ¿Eres cliente? <Link to="/login">Ir a Cliente</Link>
 </p>
           </div>
           <div className="input-tecnico">

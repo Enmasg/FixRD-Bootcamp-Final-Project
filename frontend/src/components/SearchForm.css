@@ -86,11 +86,12 @@ select option[value=""] {
   font-family: "moon_get-Heavy";
   color: #ffffff;
   font-weight: bold;
-  font-size: 0.5em;
+  font-size: 0.8em;
   text-transform: uppercase;
   text-align: center;
   margin-top: 10px;
   letter-spacing: 1px;
+  margin-bottom: 25px;
 }
 
 .icon-reloj {
