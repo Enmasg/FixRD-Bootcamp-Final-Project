@@ -30,7 +30,7 @@
 select,
 .ubicacion select,
 .fecha input {
-  width: 150px;
+  width: 210px;
   height: 65px;
   padding: 10px;
   border-radius: 20px;
