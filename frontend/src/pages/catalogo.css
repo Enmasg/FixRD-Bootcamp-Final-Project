@@ -64,9 +64,8 @@
 
 .filter-group input,
 .filter-group select {
-  font-size: 1em;
   color: #000000;
-  font-size: 1em;
+  font-size: 1.2em;
   color: #011627;
   width: 100%;
   padding: 6px 8px;
