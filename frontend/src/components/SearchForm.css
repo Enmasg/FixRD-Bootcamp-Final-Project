@@ -417,3 +417,11 @@ form .registro-link-tecnico {
   -webkit-appearance: auto;
   margin: 0;
 }
+@media (max-width: 650px) {
+
+  .CONTAINER1 {
+    width: 95%;
+    height: auto; 
+    min-height: 300px; 
+  }
+}

@@ -11,24 +11,17 @@
   --radius-xl: 24px;
 }
 
-
-.contenedorservices{
+.contenedorservices {
   min-height: 100vh;
 }
 
 .home-main {
-  
   max-width: 100%;
   margin: 0 auto;
   padding: 5rem 1.5rem 4rem;
- background: linear-gradient(160deg, #011627 20px,#001f30 100%, #003049 100% );
+  background: linear-gradient(160deg, #011627 20px, #001f30 100%, #003049 100%);
   margin-top: 10px;
 }
-
-
-
-
-/* Secciones */
 
 .home-section {
   margin-bottom: 4rem;
@@ -67,14 +60,12 @@
   color: var(--accent-hover);
 }
 
-/* Grid de tarjetas */
 .cards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1.75rem;
 }
 
-/* Tarjetas de servicios */
 .service-card {
   background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-card-alt) 100%);
   border-radius: var(--radius-xl);
@@ -99,7 +90,11 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 1.1rem;
-  background: radial-gradient(circle at top, var(--accent) 0%, var(--accent-2) 80%);
+  background: radial-gradient(
+    circle at top,
+    var(--accent) 0%,
+    var(--accent-2) 80%
+  );
   font-size: 1.6rem;
 }
 
@@ -133,8 +128,6 @@
   font-weight: 600;
   color: var(--accent-hover);
 }
-
-/* Tarjetas de técnicos */
 
 .technician-card {
   background: linear-gradient(145deg, #00121f 0%, #001f30 100%);
@@ -228,8 +221,6 @@
   font-weight: 700;
 }
 
-/* Botones */
-
 .btn-primary,
 .btn-secondary {
   border-radius: 999px;
@@ -263,8 +254,6 @@
   background: rgba(46, 196, 182, 0.12);
 }
 
-/* Extras */
-
 .loading-text {
   text-align: center;
   color: var(--text-muted);
@@ -275,9 +264,12 @@
   text-align: center;
 }
 
-/* Responsive */
-
 @media (max-width: 768px) {
+  .home-main {
+    /* Fondo adaptado para pantallas pequeñas */
+    background: linear-gradient(180deg, var(--bg-main), #001f30 90%);
+  }
+
   .home-main {
     padding-top: 4rem;
   }
