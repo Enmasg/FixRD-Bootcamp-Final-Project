@@ -95,7 +95,11 @@ const LoginRegistro = () => {
           <h1>Iniciar Sesión Cliente </h1>
           <p className="slogan">Encuentra técnicos certificados en FixRD</p>
           <div className="tipo-usuario">
+
+  <p className="link-tecnico">¿Eres técnico? <Link to="/tecnico">Ir a Técnico</Link></p>
+
   <p className="link-tecnico">¿Eres técnico? <Link to="/register">Ir a Técnico</Link></p>
+
 </div>
 
 

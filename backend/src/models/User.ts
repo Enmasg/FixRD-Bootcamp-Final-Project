@@ -3,7 +3,7 @@ import { IUser } from "@bootcamp/core";
 
 const role = ["client", "technician"];
 const UserSchema: Schema = new Schema({
-  role: { type: String, enum: role, default: role[0] },
+  role: { type: String, enum: role },
   password: { type: String, require: true },
   email: { type: String, require: true },
   name: { type: String, require: true },

@@ -36,10 +36,9 @@ const initialValues: TypeIniditialValues = {
   lugares: "",
   servicios: "",
   experiencia: "",
-   precioMin: "",
+  precioMin: "",
   precioMax: "",
   check: false,
- 
 };
 
 const validationSchema = Yup.object({
@@ -52,7 +51,7 @@ const validationSchema = Yup.object({
     .required("Email es requerido"),
   password: Yup.string()
     .min(8, "La contraseña debe tener al menos 8 caracteres")
-    .matches(/[!@#$%^&*(),.?":{}|<>]/, "Debe contener al menos un símbolo")
+    .matches(/[!@#$%^&*(),.?":{}|<>]/, "Debe contener un símbolo")
     .matches(/[0-9]/, "Debe contener un número")
     .matches(/[A-Z]/, "Debe contener una mayúscula")
     .matches(/[a-z]/, "Debe contener una minúscula")
@@ -75,9 +74,12 @@ const TecnicoRegistro = () => {
   const tecnicoRegistroLink = () => setActivar("activo");
   const tecnicoIniciaSesionLink = () => setActivar("");
 
+  const navigate = useNavigate();
+
   const onSubmit = (values: TypeIniditialValues, { resetForm }: any) => {
     console.log("Formulario Validado", values);
     resetForm();
+    navigate("/tecnico");
   };
 
   const { values, errors, handleChange, handleSubmit } = useFormik({
@@ -86,127 +88,49 @@ const TecnicoRegistro = () => {
     validationSchema,
   });
 
-  console.log(errors);
-  const navigate = useNavigate()
-
   return (
-
     <div className="formulario-registro">
-    <div className={`tecnico ${activar}`}>
-      <div className="box-login-tecnico">
-        <div className="icono-tecnico">
-          <FaUserCheck />
-        </div>
-        <form onSubmit={handleSubmit}>
-          <h1>Iniciar Sesión Técnico</h1>
-          <p className="slogan">Encuentra técnicos certificados en FixRD</p>
-          <div className="tipo-usuario">
-            <p className="link-cliente">
-  ¿Eres cliente? <Link to="/login">Ir a Cliente</Link>
-</p>
-          </div>
-          <div className="input-tecnico">
-            <input
-              type="text"
-              name="nombre"
-              placeholder="Nombre de usuario"
-              onChange={handleChange}
-              value={values.nombre}
-            />
-            <FaUserAlt className="icon" />
-            <small className="text-red-500">{errors?.nombre}</small>
-          </div>
-          <div className="input-tecnico">
-            <input
-              type="email"
-              name="email"
-              placeholder="Correo electrónico"
-              onChange={handleChange}
-              value={values.email}
-            />
-            <MdMarkEmailRead className="icon" />
-            <small className="text-red-500">{errors?.email}</small>
-          </div>
-          <div className="input-tecnico">
-            <input
-              type="password"
-              name="password"
-              placeholder="Contraseña"
-              onChange={handleChange}
-              value={values.password}
-            />
-            <br /><br />
-            <FaLock className="icon" />
-            
-          </div>
-          <div className="recordad-contrasena">
-  <label>
-    <input type="checkbox" /> Recordar Contraseña
-  </label>
-  <a href="https://outlook.live.com/" target="_blank" rel="noopener noreferrer">
-    Olvidaste la contraseña?
-  </a>
-</div>
-          <button type="submit" className="btn" onClick={() => navigate("/tecnico")}>
-            Iniciar Sesión
-          </button>
-          <div className="registro-link-tecnico">
-            <p>
-              ¿No tienes una cuenta?{" "}
-              <a href="#" onClick={tecnicoRegistroLink}>
-                Regístrate
-              </a>
-            </p>
-          </div>
-        </form>
-      </div>
-
-      <div className="box-register">
-        <form onSubmit={handleSubmit}>
-          <div className="icono-tecnico1">
+      <div className={`tecnico ${activar}`}>
+        {/* LOGIN */}
+        <div className="box-login-tecnico">
+          <div className="icono-tecnico">
             <FaUserCheck />
           </div>
-          <h1>Registro Técnico</h1>
-          <p className="slogan">Encuentra técnicos certificados en FixRD</p>
 
-          <div className="fila-doble">
+          <form onSubmit={handleSubmit}>
+            <h1>Iniciar Sesión Técnico</h1>
+            <p className="slogan">Encuentra técnicos certificados en FixRD</p>
+
+            <div className="tipo-usuario">
+              <p className="link-cliente">
+                ¿Eres cliente? <Link to="/login">Ir a Cliente</Link>
+              </p>
+            </div>
+
             <div className="input-tecnico">
               <input
                 type="text"
                 name="nombre"
-                placeholder="Nombre"
+                placeholder="Nombre de usuario"
                 onChange={handleChange}
                 value={values.nombre}
               />
               <FaUserAlt className="icon" />
-              <small className="text-red-501">{errors?.nombre}</small>
+              <small className="text-red-500">{errors?.nombre}</small>
             </div>
+
             <div className="input-tecnico">
               <input
-                type="text"
-                name="telefono"
-                placeholder="Teléfono"
+                type="email"
+                name="email"
+                placeholder="Correo electrónico"
                 onChange={handleChange}
-                value={values.telefono}
+                value={values.email}
               />
-              <FaPhoneVolume className="icon" />
-              <small className="text-red-501">{errors?.telefono}</small>
+              <MdMarkEmailRead className="icon" />
+              <small className="text-red-500">{errors?.email}</small>
             </div>
-          </div>
 
-          <div className="input-tecnico">
-            <input
-              type="email"
-              name="email"
-              placeholder="Correo electrónico"
-              onChange={handleChange}
-              value={values.email}
-            />
-            <MdMarkEmailRead className="icon" />
-            <small className="text-red-501">{errors?.email}</small>
-          </div>
-
-          <div className="fila-doble">
             <div className="input-tecnico">
               <input
                 type="password"
@@ -216,131 +140,211 @@ const TecnicoRegistro = () => {
                 value={values.password}
               />
               <FaLock className="icon" />
-              <small className="text-red-501">{errors?.password}</small>
             </div>
+
+            <div className="recordad-contrasena">
+              <label>
+                <input type="checkbox" /> Recordar Contraseña
+              </label>
+              <a
+                href="https://outlook.live.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                ¿Olvidaste la contraseña?
+              </a>
+            </div>
+
+            <button type="submit" className="btn">
+              Iniciar Sesión
+            </button>
+
+            <div className="registro-link-tecnico">
+              <p>
+                ¿No tienes una cuenta?{" "}
+                <a onClick={tecnicoRegistroLink}>Regístrate</a>
+              </p>
+            </div>
+          </form>
+        </div>
+
+        {/* REGISTRO */}
+        <div className="box-register">
+          <form onSubmit={handleSubmit}>
+            <div className="icono-tecnico1">
+              <FaUserCheck />
+            </div>
+
+            <h1>Registro Técnico</h1>
+            <p className="slogan">Encuentra técnicos certificados en FixRD</p>
+
+            <div className="fila-doble">
+              <div className="input-tecnico">
+                <input
+                  type="text"
+                  name="nombre"
+                  placeholder="Nombre"
+                  onChange={handleChange}
+                  value={values.nombre}
+                />
+                <FaUserAlt className="icon" />
+                <small className="text-red-500">{errors?.nombre}</small>
+              </div>
+
+              <div className="input-tecnico">
+                <input
+                  type="text"
+                  name="telefono"
+                  placeholder="Teléfono"
+                  onChange={handleChange}
+                  value={values.telefono}
+                />
+                <FaPhoneVolume className="icon" />
+                <small className="text-red-500">{errors?.telefono}</small>
+              </div>
+            </div>
+
             <div className="input-tecnico">
               <input
-                type="password"
-                name="passwordConfirm"
-                placeholder="Confirmación"
+                type="email"
+                name="email"
+                placeholder="Correo electrónico"
                 onChange={handleChange}
-                value={values.passwordConfirm}
+                value={values.email}
               />
-              <FaUnlock className="icon" />
-              <small className="text-red-501">{errors?.passwordConfirm}</small>
+              <MdMarkEmailRead className="icon" />
+              <small className="text-red-500">{errors?.email}</small>
             </div>
-          </div>
 
-          <div className="input-tecnico">
-            <select
-              name="lugares"
-              className="ciudades"
-              value={values.lugares}
-              onChange={handleChange}
-            >
-              <option value="">Ciudades</option>
-              <option value="SantoDomingo">Santo Domingo</option>
-              <option value="DistritoNacional">Distrito Nacional</option>
-              <option value="Santiago">Santiago</option>
-              <option value="LaVega">La Vega</option>
-              <option value="PuertoPlata">Puerto Plata</option>
-            </select>
-            <CiLocationOn className="icon" />
-            <small className="text-red-501">{errors?.lugares}</small>
-          </div>
+            <div className="fila-doble">
+              <div className="input-tecnico">
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="Contraseña"
+                  onChange={handleChange}
+                  value={values.password}
+                />
+                <FaLock className="icon" />
+                <small className="text-red-500">{errors?.password}</small>
+              </div>
 
-          <div className="input-tecnico">
-            <select
-              name="servicios"
-              className="servicios"
-              value={values.servicios}
-              onChange={handleChange}
-            >
-              <option value="">Servicios</option>
-              <option value="Plomeria">Plomeria</option>
-              <option value="Electricidad">Electricidad</option>
-              <option value="MantenimientoGeneral">
-                Mantenimiento general
-              </option>
-              <option value="RepAire">Rep. Aire Acondicionado</option>
-              <option value="OtrosServicios">Otros servicios</option>
-            </select>
-            <MdHomeRepairService className="icon" />
-            <small className="text-red-501">{errors?.servicios}</small>
-          </div>
+              <div className="input-tecnico">
+                <input
+                  type="password"
+                  name="passwordConfirm"
+                  placeholder="Confirmación"
+                  onChange={handleChange}
+                  value={values.passwordConfirm}
+                />
+                <FaUnlock className="icon" />
+                <small className="text-red-500">
+                  {errors?.passwordConfirm}
+                </small>
+              </div>
+            </div>
 
-          <label className="label-precio">Precio dominicano (RD$)</label>
-          <div className="fila-precio">
-            <div className="input-precio">
+            <div className="input-tecnico">
+              <select
+                name="lugares"
+                value={values.lugares}
+                onChange={handleChange}
+                className="ciudades"
+              >
+                <option value="">Ciudades</option>
+                <option value="SantoDomingo">Santo Domingo</option>
+                <option value="DistritoNacional">Distrito Nacional</option>
+                <option value="Santiago">Santiago</option>
+                <option value="LaVega">La Vega</option>
+                <option value="PuertoPlata">Puerto Plata</option>
+              </select>
+              <CiLocationOn className="icon" />
+              <small className="text-red-500">{errors?.lugares}</small>
+            </div>
+
+            <div className="input-tecnico">
+              <select
+                name="servicios"
+                value={values.servicios}
+                onChange={handleChange}
+                className="servicios"
+              >
+                <option value="">Servicios</option>
+                <option value="Plomeria">Plomería</option>
+                <option value="Electricidad">Electricidad</option>
+                <option value="MantenimientoGeneral">
+                  Mantenimiento general
+                </option>
+                <option value="RepAire">
+                  Rep. Aire Acondicionado
+                </option>
+                <option value="OtrosServicios">Otros servicios</option>
+              </select>
+              <MdHomeRepairService className="icon" />
+              <small className="text-red-500">{errors?.servicios}</small>
+            </div>
+
+            <label className="label-precio">Precio (RD$)</label>
+            <div className="fila-precio">
+              <div className="input-precio">
+                <input
+                  type="number"
+                  name="precioMin"
+                  placeholder="Precio mínimo"
+                  onChange={handleChange}
+                  value={values.precioMin}
+                />
+              </div>
+
+              <div className="input-precio">
+                <input
+                  type="number"
+                  name="precioMax"
+                  placeholder="Precio máximo"
+                  onChange={handleChange}
+                  value={values.precioMax}
+                />
+              </div>
+            </div>
+
+            <div className="input-tecnico-number">
               <input
                 type="number"
-                name="precioMin"
-                placeholder="Precio mínimo por hora"
-                min={0}
-                step={1}
+                name="experiencia"
+                placeholder="Años de experiencia"
                 onChange={handleChange}
-                value={values.precioMin}
+                value={values.experiencia}
               />
+              <FaUserAlt className="icon" />
+              <small className="text-red-500">{errors?.experiencia}</small>
             </div>
-            <div className="input-precio">
-              <input
-                type="number"
-                name="precioMax"
-                placeholder="Precio máximo por hora"
-                min={0}
-                step={1}
-                onChange={handleChange}
-                value={values.precioMax}
-              />
+
+            <div className="recordad-contrasena">
+              <label>
+                <input
+                  type="checkbox"
+                  name="check"
+                  checked={values.check}
+                  onChange={handleChange}
+                />
+                Acepto los términos y condiciones
+              </label>
+              <small className="text-red-500">{errors?.check}</small>
             </div>
-          </div>
 
-          <div className="input-tecnico-number">
-            <input
-              type="number"
-              name="experiencia"
-              placeholder="Años de experiencia"
-              onChange={handleChange}
-              value={values.experiencia}
-              min={0}
-              step={1}
-            />
-            <FaUserAlt className="icon" />
-            <small className="text-red-501">{errors?.experiencia}</small>
-          </div>
-          <br />
-          <br />
+            <button type="submit" className="btn">
+              Registrarse
+            </button>
 
-          <div className="recordad-contrasena">
-            <label>
-              <input
-                type="checkbox"
-                name="check"
-                checked={values.check}
-                onChange={handleChange}
-              />
-              
-              Estoy de acuerdo con los términos y condiciones
-              <small className="text-red-501">{errors?.check}</small>
-            </label>
-          </div>
-
-          <button type="submit" className="btn" onClick={() => navigate("/tecnico")}> 
-          
-            Registrarse
-          </button>
-
-          <div className="registro-link-tecnico">
-            <p>
-              ¿Ya tienes una cuenta?{" "}
-              <a href="#" onClick={tecnicoIniciaSesionLink}>
-                Iniciar Sesión
-              </a>
-            </p>
-          </div>
-        </form>
+            <div className="registro-link-tecnico">
+              <p>
+                ¿Ya tienes una cuenta?{" "}
+                <a onClick={tecnicoIniciaSesionLink}>Iniciar Sesión</a>
+              </p>
+            </div>
+          </form>
+        </div>
       </div>
-    </div>
     </div>
   );
 };

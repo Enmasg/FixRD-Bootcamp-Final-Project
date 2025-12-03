@@ -8,6 +8,7 @@ import UneteTecnico from "./components/UneteTecnico";
 import Footer from "./components/Footer";
 import FAQ from "./components/FAQ";
 import TecnicoTarjeta from "./pages/catalogo";
+import PerfilCliente from "./pages/PerfilCliente";
 
 import TechnicianDashboard from "./pages/TechnicianDashboard";
 import LoginRegistro from "./pages/LoginRegistro";
@@ -17,7 +18,6 @@ import AcercaDe from "./components/AcercaDe";
 function App() {
   return (
     <BrowserRouter>
-    
       <Routes>
         {/* Página principal */}
         <Route path="/" element={<Home />} />
@@ -35,9 +35,10 @@ function App() {
         
         {/* Dashboard del técnico */}
         <Route path="/tecnico" element={<TechnicianDashboard />} />
-        
       </Routes>
-       <Footer/>
+      
+      {/* El Footer NO debe estar dentro de Routes */}
+      <Footer/> 
     </BrowserRouter>
   );
 }
