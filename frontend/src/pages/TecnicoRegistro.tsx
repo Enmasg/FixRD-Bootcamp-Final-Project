@@ -316,7 +316,7 @@ const TecnicoRegistro = () => {
                 value={values.experiencia}
               />
               <FaUserAlt className="icon" />
-              <small className="text-red-500">{errors?.experiencia}</small>
+         
             </div>
 
             <div className="recordad-contrasena">

@@ -22,7 +22,6 @@
 .header-logo {
   height: 250px;
   width: auto;
- 
 }
 
 .main-container {
@@ -39,15 +38,16 @@
 .sidebar-filter {
   margin-left: 5px;
   width: 220px;
-  background: #ffffff;
+  background: #1b9aaa;
   padding: 15px;
   border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-  color: #333333;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  color: #000000;
   flex-shrink: 0;
 }
 
 .sidebar-filter h3 {
+  font-size: 2em;
   margin-bottom: 25px;
   text-align: center;
 }
@@ -64,17 +64,10 @@
 
 .filter-group input,
 .filter-group select {
-
   font-size: 1em;
   color: #000000;
-
-  
-font-size: 1em;
-
+  font-size: 1em;
   color: #011627;
-
-  color: #ffffff;
-
   width: 100%;
   padding: 6px 8px;
   margin-bottom: 5px;

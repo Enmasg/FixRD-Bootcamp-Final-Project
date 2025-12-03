@@ -5,6 +5,7 @@ import * as Yup from "yup";
 import { Navigate, useNavigate } from "react-router-dom";
 
 
+
 type TypeIniditialValues = {
   servicios: string;
   lugares: string;
@@ -97,11 +98,14 @@ const SearchForm = () => {
               value={values.fecha}
               onChange={handleChange}
               onBlur={handleBlur}
+              
             />
             {touched.fecha && errors.fecha && (
               <small className="text-red-500">{errors.fecha}</small>
             )}
+           
           </div>
+         
 
 
           <div className="btn-tecnico">
