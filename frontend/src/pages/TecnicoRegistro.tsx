@@ -147,7 +147,7 @@ const TecnicoRegistro = () => {
     Olvidaste la contraseña?
   </a>
 </div>
-          <button type="submit" className="btn">
+          <button type="submit" className="btn" onClick={() => navigate("/tecnico")}>
             Iniciar Sesión
           </button>
           <div className="registro-link-tecnico">

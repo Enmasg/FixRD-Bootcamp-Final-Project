@@ -1,5 +1,5 @@
 .container {
-  min-height: 100vh; /* altura mínima de la pantalla */
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
@@ -15,11 +15,14 @@
   position: sticky;
   top: 0;
   z-index: 1;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
 .header-logo {
-  height: 200px;
+  height: 250px;
   width: auto;
+ 
 }
 
 .main-container {
@@ -29,27 +32,28 @@
   padding: 20px;
   gap: 20px;
   align-items: flex-start;
+  flex-grow: 1;
+  box-sizing: border-box;
 }
 
-.sidebar {
+.sidebar-filter {
   margin-left: 5px;
   width: 220px;
   background: #ffffff;
   padding: 15px;
   border-radius: 12px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-  color: #333333; /* ESTO HACE VISIBLE EL TEXTO SOBRE EL FONDO BLANCO */
+  color: #333333;
+  flex-shrink: 0;
 }
 
-.sidebar h3 {
+.sidebar-filter h3 {
   margin-bottom: 25px;
   text-align: center;
 }
 
 .filter-group {
- 
   margin-bottom: 25px;
-  
 }
 
 .filter-group label {
@@ -60,14 +64,14 @@
 
 .filter-group input,
 .filter-group select {
-  
-font-size: 1em;
-  color: #ffffff;
+  font-size: 1em;
+  color: #000000;
   width: 100%;
   padding: 6px 8px;
   margin-bottom: 5px;
   border-radius: 6px;
   border: 1px solid #ccc;
+  box-sizing: border-box;
 }
 
 .apply-btn {
@@ -86,7 +90,6 @@ font-size: 1em;
   background: #1e40af;
 }
 
-/* Reglas para visibilidad del Placeholder */
 .filter-group input::placeholder,
 .filter-group select::placeholder {
   color: #555555;
@@ -104,12 +107,12 @@ font-size: 1em;
 }
 
 .cards-container {
- 
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
   justify-content: flex-start;
-
+  flex-grow: 1;
+  width: 100%;
 }
 
 .profile-card {
@@ -120,6 +123,8 @@ font-size: 1em;
   text-align: center;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
+  flex-shrink: 0;
+  box-sizing: border-box;
 }
 
 .profile-card:hover {
@@ -169,5 +174,28 @@ font-size: 1em;
   .main-container {
     flex-direction: column;
     align-items: center;
+    padding: 20px 10px;
+  }
+
+  .sidebar-filter {
+    margin-left: 0;
+    width: 95%;
+    max-width: 400px;
+    margin-bottom: 20px;
+  }
+
+  .cards-container {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .profile-card {
+    width: 200px;
+  }
+}
+
+@media (max-width: 600px) {
+  .profile-card {
+    width: 200px;
   }
 }

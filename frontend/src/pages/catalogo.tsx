@@ -42,7 +42,7 @@ const TecnicoTarjeta = () => {
       </header>
 
       <div className="main-container">
-        <aside className="sidebar">
+        <aside className="sidebar-filter">
           <h3>Filtros</h3>
 
           <div className="filter-group">

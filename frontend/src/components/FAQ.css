@@ -1,6 +1,6 @@
 .faq-section {
   padding: 70px 20px;
-  background: linear-gradient(#01446e 50%, #2ec4b6);
+  background: linear-gradient(#005489 50%, #2ec4b6);
   text-align: center;
   font-family: "Moonget", sans-serif;
 }
@@ -51,6 +51,9 @@
 }
 
 .faq-question {
+
+
+   filter: drop-shadow(1px 2px 3px #ffffff);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -58,7 +61,7 @@
 
 .faq-question p {
   margin: 0;
-  font-size: 19px;
+  font-size: 1.3em;
   font-weight: 600;
   color: var(--text-white);
   font-family: "Moonget", sans-serif;

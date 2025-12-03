@@ -5,7 +5,7 @@
 }
 
 .hero {
-  min-height: 100vh;
+  min-height: 60vh;
   background: linear-gradient(135deg, var(--azul-oscuro), var(--verde-claro));
   color: white;
   display: flex;
