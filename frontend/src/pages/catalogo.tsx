@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import "./catalogo.css";
 import zoro from "../assets/images/zoro.png";
 import purpura from "../assets/images/purpura.png";
@@ -20,8 +21,10 @@ const tecnicos = [
 ];
 
 const TecnicoTarjeta = () => {
-  const [filtroServicio, setFiltroServicio] = useState("");
-  const [filtroUbicacion, setFiltroUbicacion] = useState("");
+  const [searchParams] = useSearchParams();
+  
+  const [filtroServicio, setFiltroServicio] = useState(searchParams.get('servicio') || "");
+  const [filtroUbicacion, setFiltroUbicacion] = useState(searchParams.get('ubicacion') || "");
   const [filtroExperiencia, setFiltroExperiencia] = useState("");
   const [filtroEstrellas, setFiltroEstrellas] = useState("");
 

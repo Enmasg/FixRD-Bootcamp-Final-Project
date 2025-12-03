@@ -25,9 +25,35 @@ const validationSchema = Yup.object({
 });
 
 const SearchForm = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  
   const onSubmit = (values: TypeIniditialValues, { resetForm }: any) => {
     console.log("Formulario Validado", values);
+    
+    // Mapear los valores a los formatos del catálogo
+    const servicioMap: { [key: string]: string } = {
+      "electricidad": "Electricidad",
+      "plomeria": "Plomería",
+      "reparacionelectrodomesticos": "Reparación de Electrodomesticos",
+      "refrigeracionyclimatizacion": "Refrigeración y Climatización"
+    };
+
+    const ubicacionMap: { [key: string]: string } = {
+      "SantoDomingo": "Santo Domingo",
+      "Santiago": "Santiago",
+      "LaVega": "La Vega",
+      "SanCristobal": "San Cristóbal",
+      "PuertoPlata": "Puerto Plata"
+    };
+
+    // Construir la URL con query params
+    const params = new URLSearchParams();
+    if (values.servicios) params.append('servicio', servicioMap[values.servicios]);
+    if (values.lugares) params.append('ubicacion', ubicacionMap[values.lugares]);
+    if (values.fecha) params.append('fecha', values.fecha);
+    
+    navigate(`/catalogo?${params.toString()}`);
+    
     resetForm();
     console.log("Formulario Limpio");
   };
@@ -111,8 +137,7 @@ const SearchForm = () => {
           <div className="btn-tecnico">
             <button 
               className="btn-1"
-              type="button"
-              onClick={() => navigate("/catalogo")}
+              type="submit"
             >
               <h3>Encuentra el técnico</h3>
             </button>
