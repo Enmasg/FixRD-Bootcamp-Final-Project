@@ -16,13 +16,11 @@ import avatar from "../assets/images/download (11).jpeg";
 export default function PerfilCliente() {
   return (
     <div className="perfil-cliente">
-
       {/* =========================== */}
       {/* SECCIÓN PERSONA */}
       {/* =========================== */}
       <section className="persona-section">
         <div className="persona-container">
-
           <div className="persona-left">
             <img src={foto} className="persona-photo" alt="Client" />
 
@@ -31,7 +29,9 @@ export default function PerfilCliente() {
             <p className="persona-location">Santo Domingo, RD</p>
 
             <div className="persona-card">
-              <h3><i>💻</i> Digital Proficiency</h3>
+              <h3>
+                <i>💻</i> Digital Proficiency
+              </h3>
               <p>Alto - Usa tecnología diariamente</p>
             </div>
           </div>
@@ -64,7 +64,6 @@ export default function PerfilCliente() {
               </ul>
             </div>
           </div>
-
         </div>
       </section>
 
@@ -75,9 +74,9 @@ export default function PerfilCliente() {
         <div className="user-story-card">
           <h2>Historia de Usuario</h2>
           <p>
-            "Como una profesional ocupada, quiero encontrar técnicos certificados
-            rápidamente para resolver problemas de mi hogar sin perder tiempo ni
-            comprometer la calidad del servicio."
+            "Como una profesional ocupada, quiero encontrar técnicos
+            certificados rápidamente para resolver problemas de mi hogar sin
+            perder tiempo ni comprometer la calidad del servicio."
           </p>
         </div>
       </section>
@@ -90,63 +89,81 @@ export default function PerfilCliente() {
 
         <div className="user-flow">
           <div className="flow-step">
-            <div className="icon-circle"><img src={home7} alt="" /></div>
+            <div className="icon-circle">
+              <img src={home7} alt="" />
+            </div>
             <p>Llega a la página principal de FixRD</p>
           </div>
 
           <div className="flow-line"></div>
 
           <div className="flow-step">
-            <div className="icon-circle"><img src={loginBox} alt="" /></div>
+            <div className="icon-circle">
+              <img src={loginBox} alt="" />
+            </div>
             <p>Inicia sesión como Cliente</p>
           </div>
 
           <div className="flow-line"></div>
 
           <div className="flow-step">
-            <div className="icon-circle"><img src={searchIcon} alt="" /></div>
+            <div className="icon-circle">
+              <img src={searchIcon} alt="" />
+            </div>
             <p>Busca técnico por categoría</p>
           </div>
 
           <div className="flow-line"></div>
 
           <div className="flow-step">
-            <div className="icon-circle"><img src={filterIcon} alt="" /></div>
+            <div className="icon-circle">
+              <img src={filterIcon} alt="" />
+            </div>
             <p>Aplica filtros (calificación, precio, ubicación)</p>
           </div>
 
           <div className="flow-line"></div>
 
           <div className="flow-step">
-            <div className="icon-circle"><img src={userIcon} alt="" /></div>
+            <div className="icon-circle">
+              <img src={userIcon} alt="" />
+            </div>
             <p>Abre perfil del técnico</p>
           </div>
 
           <div className="flow-line"></div>
 
           <div className="flow-step">
-            <div className="icon-circle"><img src={cursorIcon} alt="" /></div>
+            <div className="icon-circle">
+              <img src={cursorIcon} alt="" />
+            </div>
             <p>Hace clic en "Solicitar Servicio"</p>
           </div>
 
           <div className="flow-line"></div>
 
           <div className="flow-step">
-            <div className="icon-circle"><img src={newsIcon} alt="" /></div>
+            <div className="icon-circle">
+              <img src={newsIcon} alt="" />
+            </div>
             <p>Completa formulario de solicitud</p>
           </div>
 
           <div className="flow-line"></div>
 
           <div className="flow-step">
-            <div className="icon-circle"><img src={checkIcon} alt="" /></div>
+            <div className="icon-circle">
+              <img src={checkIcon} alt="" />
+            </div>
             <p>Confirma la reserva</p>
           </div>
 
           <div className="flow-line"></div>
 
           <div className="flow-step">
-            <div className="icon-circle"><img src={dashboardIcon} alt="" /></div>
+            <div className="icon-circle">
+              <img src={dashboardIcon} alt="" />
+            </div>
             <p>Ve el estado en el Dashboard</p>
           </div>
         </div>
@@ -158,7 +175,6 @@ export default function PerfilCliente() {
 
       <section className="wrap">
         <div className="grid-top">
-
           {/* Izquierda */}
           <div className="col left-col">
             <div className="card profile">
@@ -208,7 +224,9 @@ export default function PerfilCliente() {
                   <div className="muted small">28/11/2025</div>
                 </div>
                 <span className="badge green">Activo</span>
-                <a className="details" href="#">Ver detalles</a>
+                <a className="details" href="#">
+                  Ver detalles
+                </a>
               </div>
 
               <div className="task">
@@ -217,7 +235,9 @@ export default function PerfilCliente() {
                   <div className="muted small">28 Nov 2025</div>
                 </div>
                 <span className="badge yellow">Pendiente</span>
-                <a className="details" href="#">Ver detalles</a>
+                <a className="details" href="#">
+                  Ver detalles
+                </a>
               </div>
 
               <div className="task">
@@ -226,7 +246,9 @@ export default function PerfilCliente() {
                   <div className="muted small">8 Nov 2024</div>
                 </div>
                 <span className="badge blue">Completado</span>
-                <a className="details" href="#">Ver Detalles</a>
+                <a className="details" href="#">
+                  Ver Detalles
+                </a>
               </div>
             </div>
           </div>
@@ -238,17 +260,20 @@ export default function PerfilCliente() {
               <ul className="history">
                 <li>
                   <strong>Carlos Martínez</strong>
-                  <span className="muted small">Nov 28</span><br />
+                  <span className="muted small">Nov 28</span>
+                  <br />
                   <span className="muted">Plomería</span>
                 </li>
                 <li>
                   <strong>Ana Rodríguez</strong>
-                  <span className="muted small">Oct 25</span><br />
+                  <span className="muted small">Oct 25</span>
+                  <br />
                   <span className="muted">Electricidad</span>
                 </li>
                 <li>
                   <strong>Luis Fernández</strong>
-                  <span className="muted small">Oct 15</span><br />
+                  <span className="muted small">Oct 15</span>
+                  <br />
                   <span className="muted">Carpintería</span>
                 </li>
               </ul>
@@ -275,20 +300,33 @@ export default function PerfilCliente() {
           <h3>Información Técnica del Perfil</h3>
 
           <div className="tech-grid">
-
             <div className="info-card">
               <h5>Información Personal</h5>
-              <p><strong>Nombre:</strong> María González</p>
-              <p><strong>Teléfono:</strong> +1 (945) 555-0123</p>
-              <p><strong>Email:</strong> maria@email.com</p>
-              <p><strong>Ubicación:</strong> Santo Domingo, RD</p>
+              <p>
+                <strong>Nombre:</strong> María González
+              </p>
+              <p>
+                <strong>Teléfono:</strong> +1 (945) 555-0123
+              </p>
+              <p>
+                <strong>Email:</strong> maria@email.com
+              </p>
+              <p>
+                <strong>Ubicación:</strong> Santo Domingo, RD
+              </p>
             </div>
 
             <div className="info-card">
               <h5>Configuración de Cuenta</h5>
-              <p><strong>Contraseña:</strong> ••••••••</p>
-              <p><strong>Verificación:</strong> ✓ Verificado</p>
-              <p><strong>Idioma:</strong> Español</p>
+              <p>
+                <strong>Contraseña:</strong> ••••••••
+              </p>
+              <p>
+                <strong>Verificación:</strong> ✓ Verificado
+              </p>
+              <p>
+                <strong>Idioma:</strong> Español
+              </p>
             </div>
 
             <div className="info-card">
@@ -301,15 +339,9 @@ export default function PerfilCliente() {
               <p>15 servicios completados</p>
               <p>Calificación promedio: 4.8/5</p>
             </div>
-
           </div>
         </section>
-
       </section>
     </div>
   );
 }
-
-
-
-
