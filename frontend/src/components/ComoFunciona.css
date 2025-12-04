@@ -1,3 +1,5 @@
+/* ================== HOW IT WORKS ================== */
+
 .how-it-works {
   padding: 80px 24px;
   text-align: center;
@@ -13,11 +15,7 @@
   left: 50%;
   width: 700px;
   height: 700px;
-  background: radial-gradient(
-    circle,
-    rgba(46, 196, 182, 0.08),
-    transparent 70%
-  );
+  background: radial-gradient(circle, rgba(46, 196, 182, 0.08), transparent 70%);
   transform: translateX(-50%);
   filter: blur(120px);
   z-index: 0;
@@ -95,7 +93,7 @@
   line-height: 1.6;
 }
 
-/* ===================== TESTIMONIALS ===================== */
+/* ================== TESTIMONIALS ================== */
 
 .testimonials {
   padding: 80px 24px;
@@ -159,4 +157,63 @@
   font-size: 16px;
   color: rgba(253, 255, 252, 0.75);
   line-height: 1.5;
+}
+
+/* ================== RESPONSIVE ================== */
+
+@media (max-width: 900px) {
+  .how-it-works {
+    padding: 60px 20px;
+  }
+
+  .how-it-works h2 {
+    font-size: 2em;
+  }
+
+  .how-it-works p {
+    font-size: 16px;
+    margin-bottom: 40px;
+  }
+
+  .circle {
+    width: 70px;
+    height: 70px;
+    font-size: 26px;
+  }
+
+  .step {
+    padding: 32px 20px;
+  }
+
+  .testimonials h2 {
+    font-size: 36px;
+  }
+
+  .testimonials p {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 500px) {
+  .how-it-works h2 {
+    font-size: 1.7em;
+  }
+
+  .steps {
+    gap: 24px;
+  }
+
+  .circle {
+    width: 60px;
+    height: 60px;
+    font-size: 22px;
+  }
+
+  .testimonial-cards {
+    gap: 24px;
+  }
+
+  .testimonials h2 {
+    font-size: 30px;
+  }
 }

@@ -1,5 +1,5 @@
 import "./AcercaDe.css";
-import TecnicosImg from "../assets/images/grupo-de-técnicos-confianza-en-equipo-trabajadores-una-fábrica-industrial-la-feliz-mantenimiento-y-ingenieros-retrato-272397872.jpg";
+import TecnicosImg from "../assets/Images-Cliente/acercade (1).png";
 import { FaInstagram } from "react-icons/fa";
 
 const AcercaDe = () => {
