@@ -11,17 +11,13 @@
   --radius-xl: 24px;
 }
 
-<<<<<<< HEAD
 /* Contenedor General */
-=======
->>>>>>> bfcd3efd6215a881706d948640e3adcc19adcbac
 .contenedorservices {
   min-height: 100vh;
 }
 
 /* Contenedor Principal del Home */
 .home-main {
-<<<<<<< HEAD
   width: 100%;
   margin: 10px auto 0;
   padding: 5rem 1.5rem 4rem;
@@ -29,15 +25,6 @@
 }
 
 /* Secciones */
-=======
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 5rem 1.5rem 4rem;
-  background: linear-gradient(160deg, #011627 20px, #001f30 100%, #003049 100%);
-  margin-top: 10px;
-}
-
->>>>>>> bfcd3efd6215a881706d948640e3adcc19adcbac
 .home-section {
   margin-bottom: 4rem;
 }
@@ -155,10 +142,7 @@
   color: var(--accent-hover);
 }
 
-<<<<<<< HEAD
-/* Tarjetas de técnicos */
-=======
->>>>>>> bfcd3efd6215a881706d948640e3adcc19adcbac
+
 .technician-card {
   background: linear-gradient(145deg, #00121f 0%, #001f30 100%);
   font-family: "OkineSans";
@@ -273,10 +257,7 @@
   font-weight: 700;
 }
 
-<<<<<<< HEAD
 /* Botones */
-=======
->>>>>>> bfcd3efd6215a881706d948640e3adcc19adcbac
 .btn-primary,
 .btn-secondary {
   border-radius: 999px;
@@ -318,10 +299,7 @@
   background: rgba(46, 196, 182, 0.12);
 }
 
-<<<<<<< HEAD
 /* Extras */
-=======
->>>>>>> bfcd3efd6215a881706d948640e3adcc19adcbac
 .loading-text {
   text-align: center;
   color: var(--text-muted);
@@ -332,10 +310,7 @@
   text-align: center;
 }
 
-<<<<<<< HEAD
 /* Responsive */
-=======
->>>>>>> bfcd3efd6215a881706d948640e3adcc19adcbac
 @media (max-width: 768px) {
   .home-main {
     /* Fondo adaptado para pantallas pequeñas */
