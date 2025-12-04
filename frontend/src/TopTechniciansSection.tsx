@@ -1,8 +1,8 @@
 // ------------------------ricky---------------------------
 import React, { useEffect, useState } from "react"; 
-import { Technician } from "../types";
-import { techniciansMock } from "../mocks/techniciansMock"; 
-import { fetchTechniciansFromApi } from "../api/techniciansApi"; 
+import { Technician } from "./types";
+import { techniciansMock } from "./mocks/techniciansMock"; 
+import { fetchTechniciansFromApi } from "./api/techniciansApi"; 
 
 const formatCurrency = (amount: number): string => {
   return new Intl.NumberFormat("es-DO", {
@@ -93,7 +93,7 @@ const TopTechniciansSection: React.FC = () => {
               <p className="technician-description">{tech.description}</p>
 
               <div className="technician-tags">
-                {tech.tags?.map((tag) => (
+                {tech.tags?.map((tag: string) => (
                   <span key={tag} className="technician-tag">
                     {tag}
                   </span>
