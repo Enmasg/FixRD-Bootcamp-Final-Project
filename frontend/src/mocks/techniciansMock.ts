@@ -1,11 +1,11 @@
 // ------------------------ricky---------------------------
 import { Technician } from "../types"; 
 
-export const techniciansMock: Technician[] = [
+export const techniciansMock = [
   {
     name: "Miguelito Pérez",
     categories: ["Plomería"],
-    pricePerHour: 5000,
+    pricePerDay: 5000,
     description:
       "Plomero maestro especializado en instalaciones residenciales y comerciales. Disponible para emergencias.",
     location: "Zona Metropolitana",
@@ -17,7 +17,7 @@ export const techniciansMock: Technician[] = [
   {
     name: "Ana Gómez",
     categories: ["Electricidad"],
-    pricePerHour: 4200,
+    pricePerDay: 4200,
     description:
       "Ingeniera eléctrica experta en sistemas inteligentes, ahorro energético y seguridad eléctrica.",
     location: "Distrito Norte",
@@ -29,7 +29,7 @@ export const techniciansMock: Technician[] = [
   {
     name: "Carlos Ramírez",
     categories: ["Refrigeracion y Climatización"],
-    pricePerHour: 3000,
+    pricePerDay: 3000,
     description:
       "Especialista HVAC en sistemas residenciales y comerciales. Enfoque en eficiencia energética.",
     location: "Zona Oeste",
@@ -38,4 +38,4 @@ export const techniciansMock: Technician[] = [
     reviewsCount: 156,
     tags: ["Certificado EPA", "12+ años", "Comercial"],
   },
-];
+] as unknown as Technician[];

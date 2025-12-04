@@ -63,65 +63,55 @@ const TopTechniciansSection: React.FC = () => {
       ) : (
         <div className="cards-grid">
           {technicians.map((tech) => (
-            <article
-              key={tech._id || tech.name}
-              className="technician-card"
-            >
-              <div className="technician-header">
-                <img
-                  src={
-                    tech.photo ||
-                    "https://via.placeholder.com/80x80.png?text=FX"
-                  }
-                  alt={tech.name}
-                  className="technician-photo"
-                />
-                <div>
-                  <h3 className="technician-name">{tech.name}</h3>
-                  <p className="technician-role">
-                    {tech.categories?.join(" • ")}
-                  </p>
-                  <div className="technician-rating">
-                    ⭐ {tech.rating?.toFixed(1) || "N/A"}{" "}
-                    <span className="technician-reviews">
-                      ({tech.reviewsCount ?? 0} reseñas)
-                    </span>
+            <article key={tech._id || tech.name} className="technician-card">
+              
+              <div className="technician-content">
+                <div className="technician-header">
+                  <img
+                    src={tech.photo || "https://via.placeholder.com/80x80.png?text=FX"}
+                    alt={tech.name}
+                    className="technician-photo"
+                  />
+                  <div>
+                    <h3 className="technician-name">{tech.name}</h3>
+                    <p className="technician-role">
+                      {tech.categories?.join(" • ")}
+                    </p>
+                    <div className="technician-rating">
+                      ⭐ {tech.rating?.toFixed(1) || "N/A"}{" "}
+                      <span className="technician-reviews">
+                        ({tech.reviewsCount ?? 0} reseñas)
+                      </span>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <p className="technician-description">{tech.description}</p>
+                <p className="technician-description">{tech.description}</p>
 
-              <div className="technician-tags">
-                {tech.tags?.map((tag) => (
-                  <span key={tag} className="technician-tag">
-                    {tag}
-                  </span>
-                ))}
+                <div className="technician-tags">
+                  {tech.tags?.map((tag) => (
+                    <span key={tag} className="technician-tag">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
 
               <div className="technician-footer">
                 <div className="technician-price">
-
                   Desde{" "}
-          
                   <span className="price-amount">
-                    {formatCurrency(tech.pricePerHour)}
+                    {formatCurrency((tech as any).pricePerDay || 0)}
                   </span>
-                  /hora
+                  /Día
                 </div>
-                <button className="btn-primary">
-                  Solicitar servicio
-                </button>
+                <button className="btn-primary">Solicitar servicio</button>
               </div>
+
             </article>
           ))}
         </div>
       )}
-
-      <div className="section-actions">
-        <button className="btn-secondary">Ver todos los técnicos</button>
-      </div>
     </section>
   );
 };
