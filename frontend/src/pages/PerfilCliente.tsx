@@ -4,6 +4,7 @@ const PerfilCliente = () => {
     return (
         <>
             {/* // Seccion Persona ///// MELANIE REINOSO--> */}
+            
             <section className="persona-section">
                 <div className="persona-container">
                     <div className="persona-left">

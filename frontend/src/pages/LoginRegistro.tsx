@@ -58,18 +58,43 @@ const validationSchema = Yup.object({
 });
 
 const LoginRegistro = () => {
+  
   const [accion, setAccion] = useState("");
   const [ciudad, setCiudad] = useState("");
 
   const registroLink = () => setAccion("activo");
   const iniciaSesionLink = () => setAccion("");
 
-  const onSubmit = (values: TypeIniditialValues, { resetForm }: any) => {
+  const onSubmit = async (values: TypeIniditialValues, { resetForm }: any) => {
     console.log("Formulario Validado", values);
     resetForm();
     console.log("Formulario limpio")
     setCiudad("");
+     await login();
   };
+
+const login = async () => {
+  try {
+    const response = await fetch('YOUR_URL_HERE', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: '',
+        password: '',
+      }),
+    });
+
+    const data = await response.json();
+    return data;
+
+  } catch (error) {
+    console.error('Login error:', error);
+    throw error;
+  }
+};
+
 
   const {
     values,
