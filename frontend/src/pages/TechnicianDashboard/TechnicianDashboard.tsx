@@ -7,6 +7,7 @@ import StatsCard from "../../components/dashboard/StatsCard";
 import RequestsList from "../../components/dashboard/RequestsList";
 import LoadingSpinner from "../../components/dashboard/LoadingSpinner";
 import { Request, TechnicianProfile, NotificationSettings } from "../../types/dashboard";
+import { requestsService, techniciansService, authService } from "../../services/api";
 
 // Mock data para desarrollo - Reemplazar con datos reales del backend
 const mockProfile: TechnicianProfile = {
@@ -69,7 +70,9 @@ export default function TechnicianDashboard() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const technicianId = "ID_DEL_TECNICO"; // TODO: Obtener del contexto de autenticación
+  // Obtener ID del técnico autenticado
+  const currentUser = authService.getCurrentUser();
+  const technicianId = currentUser.id || "ID_DEL_TECNICO";
 
   // Cargar datos del backend
   useEffect(() => {
@@ -78,19 +81,25 @@ export default function TechnicianDashboard() {
         setLoading(true);
         setError(null);
 
-        // Intentar cargar desde API
-        const response = await fetch(`/api/requests?technicianId=${technicianId}`);
-        
-        if (!response.ok) {
-          throw new Error("Error al cargar datos");
-        }
+        // Cargar perfil del técnico
+        const profileData = await techniciansService.getTechnicianProfile(technicianId);
+        setProfile({
+          id: profileData._id,
+          name: profileData.name,
+          role: profileData.categories?.join(", ") || "Técnico",
+          avatar: profileData.photo || "https://i.pravatar.cc/150?img=14",
+          certifications: ["Licensed Pro", "Insured", "Verified"],
+          isAvailable: profileData.isAvailable ?? true,
+        });
 
-        const data = await response.json();
-        setRequests(data);
+        // Cargar solicitudes
+        const requestsData = await requestsService.getRequestsByTechnician(technicianId);
+        setRequests(requestsData);
       } catch (err) {
         console.warn("Usando datos de ejemplo:", err);
         // Usar datos mock si falla la API
         setRequests(mockRequests);
+        setProfile(mockProfile);
         setError("Mostrando datos de ejemplo. Conexión con el servidor no disponible.");
       } finally {
         setLoading(false);
@@ -110,8 +119,7 @@ export default function TechnicianDashboard() {
   // Handlers con useCallback
   const handleAcceptRequest = useCallback(async (requestId: string) => {
     try {
-      // TODO: Llamar a la API para aceptar
-      // await fetch(`/api/requests/${requestId}/accept`, { method: 'POST' });
+      await requestsService.acceptRequest(requestId);
       
       setRequests(prev => 
         prev.map(req => 
@@ -119,33 +127,33 @@ export default function TechnicianDashboard() {
         )
       );
       
-      console.log("Solicitud aceptada:", requestId);
-      // TODO: Mostrar toast de éxito
+      console.log("✓ Solicitud aceptada:", requestId);
+      // TODO: Agregar toast.success('Solicitud aceptada exitosamente');
     } catch (err) {
       console.error("Error al aceptar solicitud:", err);
-      // TODO: Mostrar toast de error
+      setError("No se pudo aceptar la solicitud. Intenta nuevamente.");
+      // TODO: Agregar toast.error('Error al aceptar solicitud');
     }
   }, []);
 
   const handleRejectRequest = useCallback(async (requestId: string) => {
     try {
-      // TODO: Llamar a la API para rechazar
-      // await fetch(`/api/requests/${requestId}/reject`, { method: 'POST' });
+      await requestsService.rejectRequest(requestId);
       
       setRequests(prev => prev.filter(req => req._id !== requestId));
       
-      console.log("Solicitud rechazada:", requestId);
-      // TODO: Mostrar toast de éxito
+      console.log("✓ Solicitud rechazada:", requestId);
+      // TODO: Agregar toast.success('Solicitud rechazada');
     } catch (err) {
       console.error("Error al rechazar solicitud:", err);
-      // TODO: Mostrar toast de error
+      setError("No se pudo rechazar la solicitud. Intenta nuevamente.");
+      // TODO: Agregar toast.error('Error al rechazar solicitud');
     }
   }, []);
 
   const handleCompleteRequest = useCallback(async (requestId: string) => {
     try {
-      // TODO: Llamar a la API para completar
-      // await fetch(`/api/requests/${requestId}/complete`, { method: 'POST' });
+      await requestsService.completeRequest(requestId);
       
       setRequests(prev => 
         prev.map(req => 
@@ -153,35 +161,33 @@ export default function TechnicianDashboard() {
         )
       );
       
-      console.log("Solicitud completada:", requestId);
-      // TODO: Mostrar toast de éxito
+      console.log("✓ Solicitud completada:", requestId);
+      // TODO: Agregar toast.success('Solicitud marcada como completada');
     } catch (err) {
       console.error("Error al completar solicitud:", err);
-      // TODO: Mostrar toast de error
+      setError("No se pudo completar la solicitud. Intenta nuevamente.");
+      // TODO: Agregar toast.error('Error al completar solicitud');
     }
   }, []);
 
   const handleToggleAvailability = useCallback(async (isAvailable: boolean) => {
     try {
-      // TODO: Llamar a la API para actualizar disponibilidad
-      // await fetch(`/api/technicians/${technicianId}/availability`, {
-      //   method: 'PATCH',
-      //   body: JSON.stringify({ isAvailable })
-      // });
+      await techniciansService.updateAvailability(technicianId, isAvailable);
       
       setProfile(prev => ({ ...prev, isAvailable }));
-      console.log("Disponibilidad actualizada:", isAvailable);
+      console.log("✓ Disponibilidad actualizada:", isAvailable);
     } catch (err) {
       console.error("Error al actualizar disponibilidad:", err);
+      setError("No se pudo actualizar la disponibilidad.");
     }
-  }, []);
+  }, [technicianId]);
 
   const handleToggleNotification = useCallback(
     async (key: keyof NotificationSettings, value: boolean) => {
       try {
-        // TODO: Llamar a la API para actualizar notificaciones
+        // TODO: Implementar endpoint de notificaciones en el backend
         setNotifications(prev => ({ ...prev, [key]: value }));
-        console.log(`Notificación ${key} actualizada:`, value);
+        console.log(`✓ Notificación ${key} actualizada:`, value);
       } catch (err) {
         console.error("Error al actualizar notificaciones:", err);
       }

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import TechnicianNavbar from "../../components/layout/Topbar/TechnicianNavbar";
 import LoadingSpinner from "../../components/dashboard/LoadingSpinner";
+import { techniciansService, authService } from "../../services/api";
 import "./ProfileSettings.css";
 
 export default function ProfileSettings() {
@@ -17,19 +18,16 @@ export default function ProfileSettings() {
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const technicianId = "ID_DEL_TECNICO"; // TODO: Obtener del contexto de autenticación
+  // Obtener ID del técnico autenticado
+  const currentUser = authService.getCurrentUser();
+  const technicianId = currentUser.id || "ID_DEL_TECNICO";
 
   useEffect(() => {
     const loadProfile = async () => {
       try {
         setLoading(true);
-        const res = await fetch(`/api/technicians/${technicianId}`);
+        const t = await techniciansService.getTechnicianProfile(technicianId);
         
-        if (!res.ok) {
-          throw new Error("Error al cargar el perfil");
-        }
-        
-        const t = await res.json();
         setForm({
           name: t.name || "",
           description: t.description || "",
@@ -90,15 +88,7 @@ export default function ProfileSettings() {
         photo: form.photo,
       };
 
-      const res = await fetch(`/api/technicians/${technicianId}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
-      });
-
-      if (!res.ok) {
-        throw new Error("Error al actualizar el perfil");
-      }
+      await techniciansService.updateTechnicianProfile(technicianId, body);
 
       // Éxito - redirigir al dashboard
       alert("✓ Perfil actualizado correctamente");
