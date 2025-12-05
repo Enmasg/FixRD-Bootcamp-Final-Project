@@ -38,6 +38,7 @@ function App() {
         {/* Dashboard del técnico */}
         <Route path="/tecnico" element={<TechnicianDashboard />} />
         <Route path="/tecnico/perfil" element={<ProfileSettings />} />
+        <Route path="/cliente" element={<PerfilCliente />} />
       </Routes>
       
       {/* El Footer NO debe estar dentro de Routes */}

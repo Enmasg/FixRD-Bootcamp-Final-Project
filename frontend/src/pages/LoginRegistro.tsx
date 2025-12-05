@@ -11,7 +11,7 @@ import {
 } from "react-icons/fa";
 import { MdMarkEmailRead } from "react-icons/md";
 import { CiLocationOn } from "react-icons/ci";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 type TypeIniditialValues = {
   nombre: string;
@@ -22,7 +22,11 @@ type TypeIniditialValues = {
   opcion: string;
   check: boolean;
 };
-
+type RegisterFetch = {
+  email: string;
+  name?: string;
+  password: string;
+};
 const initialValues: TypeIniditialValues = {
   nombre: "",
   telefono: "",
@@ -58,235 +62,269 @@ const validationSchema = Yup.object({
 });
 
 const LoginRegistro = () => {
-  
   const [accion, setAccion] = useState("");
   const [ciudad, setCiudad] = useState("");
 
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loginError, setLoginError] = useState("");
+  const [registerError, setRegisterError] = useState("");
+
   const registroLink = () => setAccion("activo");
   const iniciaSesionLink = () => setAccion("");
+  const navigate = useNavigate();
 
-  const onSubmit = async (values: TypeIniditialValues, { resetForm }: any) => {
-    console.log("Formulario Validado", values);
-    resetForm();
-    console.log("Formulario limpio")
-    setCiudad("");
-     await login();
+  const onSubmit = async () => {
+    await fetchRegister();
   };
 
-const login = async () => {
-  try {
-    const response = await fetch('YOUR_URL_HERE', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        email: '',
-        password: '',
-      }),
-    });
-
-    const data = await response.json();
-    return data;
-
-  } catch (error) {
-    console.error('Login error:', error);
-    throw error;
-  }
-};
-
-
-  const {
-    values,
-    errors,
-    handleChange,
-    handleSubmit,
-  } = useFormik({
+  const { values, errors, handleChange, handleSubmit, resetForm } = useFormik({
     initialValues,
     onSubmit,
     validationSchema,
   });
 
-  console.log (errors)
+  const fetchRegister = async () => {
+    try {
+      const response = await fetch("http://localhost:3000/api/auth/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: values.email,
+          name: values.nombre,
+          password: values.password,
+        }),
+      });
+
+      if (response.status === 204) {
+        resetForm();
+        return null;
+      } else {
+        setRegisterError("Hubo un error intente mas tarde");
+      }
+    } catch (e: any) {
+      console.error("Register error:", e);
+      alert("Error registering user");
+      return null;
+    }
+  };
+
+  const fetchLogin = async (e: any) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch("http://localhost:3000/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (response.ok) {
+        navigate("/cliente");
+      } else {
+        setLoginError("Invalid email or password");
+      }
+    } catch (e: any) {
+      console.error("Register error:", e);
+      alert("Error registering user");
+      return null;
+    }
+  };
+
   return (
     <div className="Formulario">
-    <div className={`cliente ${accion}`}>
-      <div className="box-login">
-        <div className="icono-usuario">
-          <FaUserCheck />
-        </div>
-
-        <form>
-          <h1>Iniciar Sesión Cliente </h1>
-          <p className="slogan">Encuentra técnicos certificados en FixRD</p>
-          <div className="tipo-usuario">
-
-{/*   <p className="link-tecnico">¿Eres técnico? <Link to="/tecnico">Ir a Técnico</Link></p> */}
-
-  <p className="link-tecnico">¿Eres técnico? <Link to="/register">Ir a Técnico</Link></p>
-
-</div>
-
-
-          <div className="input-box">
-            <input type="text" name="nombre" placeholder="Nombre de usuario" />
-            <FaUserAlt className="icon" />
-          </div>
-
-          <div className="input-box">
-            <input type="email" name="email" placeholder="Correo electrónico" />
-            <MdMarkEmailRead className="icon" />
-          </div>
-
-          <div className="input-box">
-            <input type="password" name="password" placeholder="Contraseña" />
-            <FaLock className="icon" />
-          </div>
-          
-
-          <div className="recordad-contrasena">
-            <label>
-              <input type="checkbox" name="password" /> Recordar Contraseña
-            </label>
-            <a href="#">Olvidaste la contraseña?</a>
-          </div>
-
-          <button type="submit" className="btn">
-            Iniciar Sesión
-          </button>
-
-          <div className="registro-link">
-            <p>
-              ¿No tienes una cuenta?{" "}
-              <a href="#" onClick={registroLink}>
-                Regístrate
-              </a>
-            </p>
-          </div>
-        </form>
-      </div>
-
-      <div className="box-register">
-        <form onSubmit={handleSubmit}>
-          <div className="icono-usuario1">
+      <div className={`cliente ${accion}`}>
+        <div className="box-login">
+          <div className="icono-usuario">
             <FaUserCheck />
           </div>
 
-          <h1>Registro Cliente</h1>
-          <p className="slogan">Encuentra técnicos certificados en FixRD</p>
+          <form>
+            <h1>Iniciar Sesión Cliente </h1>
+            <p className="slogan">Encuentra técnicos certificados en FixRD</p>
+            <div className="tipo-usuario">
+              {/*   <p className="link-tecnico">¿Eres técnico? <Link to="/tecnico">Ir a Técnico</Link></p> */}
 
-          <div className="fila-doble">
-            <div className="input-box">
-              <input
-                type="text"
-                name="nombre"
-                placeholder="Nombre"
-                onChange={handleChange}
-                value={values.nombre}
-              />
-              <small className="text-red-501">{errors?.nombre}</small>
-              <FaUserAlt className="icon" />
+              <p className="link-tecnico">
+                ¿Eres técnico? <Link to="/register">Ir a Técnico</Link>
+              </p>
+              {registerError && <p style={{ color: "red" }}>{registerError}</p>}
             </div>
 
             <div className="input-box">
               <input
-                type="text"
-                name="telefono"
-                placeholder="Teléfono"
-                onChange={handleChange}
-                value={values.telefono}
+                type="email"
+                name="email"
+                placeholder="Correo electrónico"
+                value={email}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                  setEmail(e.target.value)
+                }
               />
-              <small className="text-red-501">{errors?.telefono}</small>
-              <FaPhoneVolume className="icon" />
+              <MdMarkEmailRead className="icon" />
             </div>
-          </div>
 
-          <div className="input-box">
-            <input
-              type="email"
-              name="email"
-              placeholder="Correo electrónico"
-              onChange={handleChange}
-              value={values.email}
-            />
-            <small className="text-red-501">{errors?.email}</small>
-            <MdMarkEmailRead className="icon" />
-          </div>
-
-          <div className="fila-doble">
             <div className="input-box">
               <input
                 type="password"
                 name="password"
                 placeholder="Contraseña"
-                onChange={handleChange}
-                value={values.password}
+                value={password}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                  setPassword(e.target.value)
+                }
               />
-              <small className="text-red-501">{errors?.password}</small>
               <FaLock className="icon" />
+            </div>
+
+            <div className="recordad-contrasena">
+              <label>
+                <input type="checkbox" name="password" /> Recordar Contraseña
+              </label>
+              <a href="#">Olvidaste la contraseña?</a>
+            </div>
+
+            <button type="submit" className="btn" onClick={fetchLogin}>
+              Iniciar Sesión
+            </button>
+
+            <div className="registro-link">
+              <p>
+                ¿No tienes una cuenta?{" "}
+                <a href="#" onClick={registroLink}>
+                  Regístrate
+                </a>
+              </p>
+            </div>
+          </form>
+        </div>
+
+        <div className="box-register">
+          <form onSubmit={handleSubmit}>
+            <div className="icono-usuario1">
+              <FaUserCheck />
+            </div>
+
+            <h1>Registro Cliente</h1>
+            <p className="slogan">Encuentra técnicos certificados en FixRD</p>
+            {loginError && <p style={{ color: "red" }}>{loginError}</p>}
+
+            <div className="fila-doble">
+              <div className="input-box">
+                <input
+                  type="text"
+                  name="nombre"
+                  placeholder="Nombre"
+                  onChange={handleChange}
+                  value={values.nombre}
+                />
+                <small className="text-red-501">{errors?.nombre}</small>
+                <FaUserAlt className="icon" />
+              </div>
+
+              <div className="input-box">
+                <input
+                  type="text"
+                  name="telefono"
+                  placeholder="Teléfono"
+                  onChange={handleChange}
+                  value={values.telefono}
+                />
+                <small className="text-red-501">{errors?.telefono}</small>
+                <FaPhoneVolume className="icon" />
+              </div>
             </div>
 
             <div className="input-box">
               <input
-                type="password"
-                name="passwordConfirm"
-                placeholder="Confirmación"
+                type="email"
+                name="email"
+                placeholder="Correo electrónico"
                 onChange={handleChange}
-                value={values.passwordConfirm}
+                value={values.email}
               />
-              <small className="text-red-501">{errors?.passwordConfirm}</small>
-              <FaUnlock className="icon" />
+              <small className="text-red-501">{errors?.email}</small>
+              <MdMarkEmailRead className="icon" />
             </div>
-          </div>
 
-          <div className="input-box">
-            <select
-              name="lugares"
-              className="ciudades"
-              value={ciudad}
-              onChange={(e) => setCiudad(e.target.value)}
-              required
-            >
-              <option>Ciudades</option>
-              <option value="SantoDomingo">Santo Domingo</option>
-              <option value="DistritoNacional">Distrito Nacional</option>
-              <option value="Santiago">Santiago</option>
-              <option value="LaVega">La Vega</option>
-              <option value="PuertoPlata">Puerto Plata</option>
-            </select>
+            <div className="fila-doble">
+              <div className="input-box">
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="Contraseña"
+                  onChange={handleChange}
+                  value={values.password}
+                />
+                <small className="text-red-501">{errors?.password}</small>
+                <FaLock className="icon" />
+              </div>
 
-            <CiLocationOn className="icon" />
-            
-          </div>
-          <div className="recordad-contrasena">
-            <label>
-              <input
-                type="checkbox"
-                name="check"
-                checked={values.check}
-                onChange={handleChange}
-              />
-              
-              Estoy de acuerdo con los términos y condiciones
-              <small className="text-red-501">{errors?.check}</small>
-            </label>
-          </div>
+              <div className="input-box">
+                <input
+                  type="password"
+                  name="passwordConfirm"
+                  placeholder="Confirmación"
+                  onChange={handleChange}
+                  value={values.passwordConfirm}
+                />
+                <small className="text-red-501">
+                  {errors?.passwordConfirm}
+                </small>
+                <FaUnlock className="icon" />
+              </div>
+            </div>
 
-          <button type="submit" className="btn">
-            Registrarse
-          </button>
+            <div className="input-box">
+              <select
+                name="lugares"
+                className="ciudades"
+                value={ciudad}
+                onChange={(e) => setCiudad(e.target.value)}
+                required
+              >
+                <option>Ciudades</option>
+                <option value="SantoDomingo">Santo Domingo</option>
+                <option value="DistritoNacional">Distrito Nacional</option>
+                <option value="Santiago">Santiago</option>
+                <option value="LaVega">La Vega</option>
+                <option value="PuertoPlata">Puerto Plata</option>
+              </select>
 
-          <div className="registro-link">
-            <p>
-              ¿Ya tienes una cuenta?{" "}
-              <a href="#" onClick={iniciaSesionLink}>
-                Iniciar Sesión
-              </a>
-            </p>
-          </div>
-        </form>
+              <CiLocationOn className="icon" />
+            </div>
+            <div className="recordad-contrasena">
+              <label>
+                <input
+                  type="checkbox"
+                  name="check"
+                  checked={values.check}
+                  onChange={handleChange}
+                />
+                Estoy de acuerdo con los términos y condiciones
+                <small className="text-red-501">{errors?.check}</small>
+              </label>
+            </div>
+
+            <button type="submit" className="btn">
+              Registrarse
+            </button>
+
+            <div className="registro-link">
+              <p>
+                ¿Ya tienes una cuenta?{" "}
+                <a href="#" onClick={iniciaSesionLink}>
+                  Iniciar Sesión
+                </a>
+              </p>
+            </div>
+          </form>
+        </div>
       </div>
-    </div>
     </div>
   );
 };
