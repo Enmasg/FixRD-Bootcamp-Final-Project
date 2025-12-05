@@ -197,10 +197,10 @@ const PerfilCliente = () => {
                 <strong>Nombre:</strong> María González
               </p>
               <p>
-                <strong>Teléfono:</strong> +1 (945) 555-0123
+                <strong>Teléfono:</strong> +1 (809) 586-9192
               </p>
               <p>
-                <strong>Email:</strong> maria@email.com
+                <strong>Email:</strong> mariag@hotmail.com
               </p>
               <p>
                 <strong>Ubicación:</strong> Santo Domingo, RD
@@ -210,7 +210,7 @@ const PerfilCliente = () => {
             <div className="info-card">
               <h5>Configuración de Cuenta</h5>
               <p>
-                <strong>Contraseña:</strong> ••••••••
+                <strong>Contraseña:</strong> xxxxxxxx
               </p>
               <p>
                 <strong>Verificación:</strong> ✓ Verificado
