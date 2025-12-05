@@ -18,6 +18,14 @@ const tecnicos = [
   { nombre: "María López", servicio: "Refrigeración y Climatización", ubicacion: "Puerto Plata", experiencia: 4, estrellas: 3, foto: azulmujer },
   { nombre: "Carlos Díaz", servicio: "Plomería", ubicacion: "San Cristóbal", experiencia: 6, estrellas: 4, foto: purpura },
   { nombre: "Sofía Hernández", servicio: "Electricidad", ubicacion: "Santo Domingo", experiencia: 2, estrellas: 2, foto: rosado },
+
+    { nombre: "Juana Almonte", servicio: "Refrigeración y Climatización", ubicacion: "La Vega", experiencia: 4, estrellas: 3, foto: azulmujer },
+  { nombre: "Pedro Santana", servicio: "Plomería", ubicacion: "San Cristóbal", experiencia: 6, estrellas: 3, foto: blanco },
+  { nombre: "Amelia Vega", servicio: "Electricidad", ubicacion: "Puerto Plata", experiencia: 5, estrellas: 5, foto: rosado },
+
+  
+
+  
 ];
 
 const TecnicoTarjeta = () => {
