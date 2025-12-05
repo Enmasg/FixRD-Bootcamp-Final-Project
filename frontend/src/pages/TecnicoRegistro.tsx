@@ -27,6 +27,12 @@ type TypeIniditialValues = {
   check: boolean;
 };
 
+type RegisterFetch = {
+  email: string;
+  name?: string;
+  password: string;
+};
+
 const initialValues: TypeIniditialValues = {
   nombre: "",
   telefono: "",
@@ -76,10 +82,30 @@ const TecnicoRegistro = () => {
 
   const navigate = useNavigate();
 
-  const onSubmit = (values: TypeIniditialValues, { resetForm }: any) => {
-    console.log("Formulario Validado", values);
+  const onSubmit = async (
+    { email, nombre: name, password }: TypeIniditialValues,
+    { resetForm }: any
+  ) => {
+    await fetchRegister({ email, name, password });
     resetForm();
-    navigate("/tecnico");
+  };
+
+  const fetchRegister = async ({ email, name, password }: RegisterFetch) => {
+    try {
+      fetch("http://localhost:3000/api/auth/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, name, password }),
+      })
+        .then((r) => r.text())
+        .then(console.log);
+    } catch (e: any) {
+      console.error("Register error:", e);
+      alert("Error registering user");
+      return null;
+    }
   };
 
   const { values, errors, handleChange, handleSubmit } = useFormik({
@@ -88,6 +114,30 @@ const TecnicoRegistro = () => {
     validationSchema,
   });
 
+  const onLogin = async (event: any) => {
+    event.preventDefault();
+    await fetchLogin({ email: values.email, password: values.password });
+  };
+
+  const fetchLogin = async ({ email, password }: RegisterFetch) => {
+    try {
+      fetch("http://localhost:3000/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      })
+        .then((r) => r.json())
+        .then((r: any) => {
+          navigate("/tecnico");
+        });
+    } catch (e: any) {
+      console.error("Register error:", e);
+      alert("Error registering user");
+      return null;
+    }
+  };
   return (
     <div className="formulario-registro">
       <div className={`tecnico ${activar}`}>
@@ -97,7 +147,7 @@ const TecnicoRegistro = () => {
             <FaUserCheck />
           </div>
 
-          <form onSubmit={handleSubmit}>
+          <form>
             <h1>Iniciar Sesión Técnico</h1>
             <p className="slogan">Encuentra técnicos certificados en FixRD</p>
 
@@ -105,18 +155,6 @@ const TecnicoRegistro = () => {
               <p className="link-cliente">
                 ¿Eres cliente? <Link to="/login">Ir a Cliente</Link>
               </p>
-            </div>
-
-            <div className="input-tecnico">
-              <input
-                type="text"
-                name="nombre"
-                placeholder="Nombre de usuario"
-                onChange={handleChange}
-                value={values.nombre}
-              />
-              <FaUserAlt className="icon" />
-              <small className="text-red-500">{errors?.nombre}</small>
             </div>
 
             <div className="input-tecnico">
@@ -155,7 +193,7 @@ const TecnicoRegistro = () => {
               </a>
             </div>
 
-            <button type="submit" className="btn">
+            <button type="submit" className="btn" onClick={onLogin}>
               Iniciar Sesión
             </button>
 
@@ -275,9 +313,7 @@ const TecnicoRegistro = () => {
                 <option value="MantenimientoGeneral">
                   Mantenimiento general
                 </option>
-                <option value="RepAire">
-                  Rep. Aire Acondicionado
-                </option>
+                <option value="RepAire">Rep. Aire Acondicionado</option>
                 <option value="OtrosServicios">Otros servicios</option>
               </select>
               <MdHomeRepairService className="icon" />
@@ -316,7 +352,6 @@ const TecnicoRegistro = () => {
                 value={values.experiencia}
               />
               <FaUserAlt className="icon" />
-         
             </div>
 
             <div className="recordad-contrasena">
