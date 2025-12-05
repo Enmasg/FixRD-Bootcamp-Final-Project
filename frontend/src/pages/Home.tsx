@@ -18,7 +18,6 @@ const Home = () => {
       <SearchForm />
       <main className="home-main">
         <ServicesSection />
-        <TechnicianDashboard />
 
       </main>
       <ComoFunciona />
