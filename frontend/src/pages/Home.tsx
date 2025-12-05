@@ -18,15 +18,14 @@ const Home = () => {
       <SearchForm />
       <main className="home-main">
         <ServicesSection />
-        
 
       </main>
       <ComoFunciona />
       <AcercaDe />
-     
+
       <FAQ />
       <UneteTecnico />
-     
+
     </>
   );
 };
